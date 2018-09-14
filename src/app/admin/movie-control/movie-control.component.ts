@@ -33,3 +33,4 @@ export class MovieControlComponent implements OnInit {
     this.movieService.getMovieById(id)
       .subscribe(x => this.movie = x);
   }
+}

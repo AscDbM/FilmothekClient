@@ -29,4 +29,12 @@ export class MovieService {
   checkIfRented(id:number): Observable<boolean> {
     return this.http.get<boolean>(AppSettings.apiUrl+`check/${id}`)
   }
+
+  delete(id:number):Observable<any> {
+    return this.http.delete<any>(AppSettings.apiUrl+`deleteMovie/${id}`, AppSettings.httpOptions);
+  }
+
+  editMovie(movie:Movie): Observable<any> {
+    return this.http.put<any>(AppSettings.apiUrl+`editMovie`,movie,AppSettings.httpOptions);
+  }
 }

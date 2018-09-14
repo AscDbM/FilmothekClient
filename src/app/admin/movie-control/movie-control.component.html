@@ -13,3 +13,62 @@
 </mat-list>
 <button mat-raised-button (click)="delete()">Rent for {{movie.price}}</button>
 <button mat-raised-button (click)="Save Edits()">Watch</button>
+
+
+<form [formGroup]="MovieForm" (ngSubmit)="send()" class="container">
+    <div>
+
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Movie Name:</mat-label>
+        <input matInput placeholder="{{movie.movieName}}}" type="text" formControlName="name" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Genre</mat-label>
+        <input matInput placeholder="{{movie.genre}}}" type="text" formControlName="genre" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Language</mat-label>
+        <input matInput placeholder="{{movie.languageDub}}}" type="text" formControlName="dub">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Subtitles</mat-label>
+        <input matInput placeholder="{{movie.languageSub}}}" type="text" formControlName="sub">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Lenght(minutes)</mat-label>
+        <input matInput placeholder="{{movie.length}}}" type="text" formControlName="length">
+      </mat-form-field>
+    </div>
+
+
+
+
+
+
+
+
+
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Month" formControlName="ccMonth">
+          <mat-option *ngFor=" let i of month" value="{{i}}">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Year" formControlName="ccYear">
+          <mat-option *ngFor="let i of year" value="{{i}}">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field> 
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!paymentForm.valid">send</button>
+    </div>  
+  </form>
