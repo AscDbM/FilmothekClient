@@ -1,15 +1,7 @@
-<mat-tab-group>
+<mat-tab-group #tabGroup>
   <mat-tab label="Admins Overview">
     <ng-template matTabContent>
-      <!--<div *ngFor="let customer of customers">
-        <mat-tree>
-          <mat-nested-tree-node>entry {{customer}}
-            <mat-nested-tree-node>1</mat-nested-tree-node>
-            <mat-nested-tree-node>2</mat-nested-tree-node>
-            <mat-nested-tree-node>3</mat-nested-tree-node>
-          </mat-nested-tree-node>
-        </mat-tree>
-      </div>-->
+      
     </ng-template>
   </mat-tab>
   <mat-tab label="Customer Overview">
@@ -19,9 +11,18 @@
   </mat-tab>
   <mat-tab label="Movie Overview">
     <ng-template matTabContent>
-      <mat-list>       
-        <mat-list-item>did it work?</mat-list-item>       
-      </mat-list>
+      <table mat-table [dataSource]="movieTable" class="MovieTable">
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let cell">{{cell.index}}</td>
+        </ng-container>
+        <ng-container matColumnDef="entry">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>
+          <td mat-cell *matCellDef="let cell">{{cell.entry}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </ng-template>
   </mat-tab>
 </mat-tab-group>

@@ -12,6 +12,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatTableModule} from '@angular/material/table';
 
 //fake backend, only for testing
 //import { fakeBackendProvider } from "./Interceptor/fakeBackend";
@@ -36,7 +37,8 @@ import { CcEditComponent } from './userpage/cc-edit/cc-edit.component';
 import { PpEditComponent } from './userpage/pp-edit/pp-edit.component';
 import { BankEditComponent } from './userpage/bank-edit/bank-edit.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
-import { AdminComponent } from './admin/admin.component'; 
+import { AdminComponent } from './admin/admin.component';
+import { MovieControlComponent } from './admin/movie-control/movie-control.component'; 
 
 
 
@@ -58,6 +60,7 @@ import { AdminComponent } from './admin/admin.component';
     BankEditComponent,
     MovieDetailComponent,
     AdminComponent,
+    MovieControlComponent,
 
   ],
   imports: [
@@ -77,6 +80,7 @@ import { AdminComponent } from './admin/admin.component';
     MatSelectModule,
     MatInputModule,
     MatTreeModule,
+    MatTableModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

@@ -18,6 +18,7 @@ import { BankEditComponent } from './userpage/bank-edit/bank-edit.component';
 import { PpEditComponent } from './userpage/pp-edit/pp-edit.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { AdminComponent } from './admin/admin.component';
+import { MovieControlComponent } from './admin/movie-control/movie-control.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
     { path: 'editPP', component: PpEditComponent, canActivate: [AuthGuard]},
     { path: 'movie/:id', component: MovieDetailComponent},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
+    { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 

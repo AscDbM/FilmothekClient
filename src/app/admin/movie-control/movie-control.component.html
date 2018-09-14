@@ -1,0 +1,15 @@
+<h2>{{movie.movieName}}</h2>
+<!--<img class="preview" src="{{imgUrl}}/{{movie.id}}">-->
+<p>{{movie.content}}</p>
+<mat-list>
+  <mat-list-item>Genre: {{movie.genre}}</mat-list-item>
+  <mat-list-item>Length: {{movie.lenght}}min</mat-list-item>
+  <mat-list-item *ngIf="isSeries">Part of a serie</mat-list-item>
+  <mat-list-item>Available Languages: {{movie.languageDub}}</mat-list-item>
+  <mat-list-item>Subtitles: {{movie.languageSub}}</mat-list-item>
+  <mat-list-item>Rating: {{movie.rating}}/10</mat-list-item>
+  <mat-list-item>Release Date: {{movie.release | date:shortDate}}</mat-list-item>
+  <mat-list-item>FSK :{{movie.fsk}}</mat-list-item>
+</mat-list>
+<button mat-raised-button (click)="delete()">Rent for {{movie.price}}</button>
+<button mat-raised-button (click)="Save Edits()">Watch</button>

@@ -26,6 +26,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   movies: Movie[] = [];
   movieTable: Table[] = [];
   loadedMovies = false;
+  displayedColumns: string[] = ['index','entry'];
   //tabGroup = new MatTabGroup();
 
 
@@ -37,7 +38,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   ) { }
 
   ngOnInit() {
-    this.createTable();
+    
   }
 
   ngAfterViewInit() {
@@ -46,6 +47,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
       if(this.tabGroup.selectedIndex=2)
       this.createTable();
     }*/
+    this.createTable();
   }
 
 
