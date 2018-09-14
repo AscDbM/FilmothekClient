@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../Models/movie';
-import { Router } from '@angular/router';
+import { AppSettings } from '../appSettings';
+
+
 
 @Component({
   selector: 'app-movie',
@@ -12,6 +16,7 @@ export class MovieComponent implements OnInit {
 
   movie: Movie[];
   //m = this.movie[0];
+  imgPath=AppSettings.imgLocal;
 
   constructor(
     private movieService: MovieService, 

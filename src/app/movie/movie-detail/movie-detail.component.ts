@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../Models/movie';
+import { AppSettings } from '../../appSettings';
 
 @Component({
   selector: 'app-movie-detail',
@@ -14,6 +15,9 @@ export class MovieDetailComponent implements OnInit {
 
   movie: Movie;
   urlId: number;
+  imgUrl=AppSettings.imgUrl;
+  isFullscreen = false;
+  isRented = false;
 
   constructor(
     private userService: UserService,
@@ -25,7 +29,8 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.urlId = +this.route.snapshot.url.toString().slice(6)
     //console.log(this.urlId);
-    this.getMovie(this.urlId)
+    this.getMovie(this.urlId);
+    this.rentState(this.urlId);
   }
 
   getMovie(id:number) {
@@ -33,16 +38,20 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(x => this.movie = x);
   }
 
-  Rent() {
+  rent() {
+    console.log(this.urlId);
     this.movieService.rent(this.urlId)
       .subscribe();
+    this.rentState(this.urlId);
   }
 
-  Watch(): boolean {
-    let permission = false;
-    this.movieService.checkIfRented(this.urlId)
-      .subscribe(x => permission = x);
-    return permission;
+  rentState(id:number) {
+    this.movieService.checkIfRented(id)
+      .subscribe(x => this.isRented = x);
+  }
+
+  watch() {
+    this.isFullscreen=true;
   }
 
 }

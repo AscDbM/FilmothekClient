@@ -8,7 +8,7 @@ export class Movie {
   price: number;
   languageDub: string;
   languageSub: string;
-  release: string;
+  release: Date;
   fsk: number;
   content: string;
 }

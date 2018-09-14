@@ -6,7 +6,7 @@
         <mat-card-title>{{m.movieName}}</mat-card-title>
         <mat-card-subtitle>{{m.genre}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://angular.io/assets/images/logos/angular/angular.svg"> <!-- example image-->
+      <img mat-card-image [src]="imgPath"> <!-- example image-->
       <mat-card-content>
         <p *ngIf="m.length<20; else Shortened">{{m.content}}</p>
         <ng-template #Shortened>

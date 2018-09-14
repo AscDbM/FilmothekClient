@@ -19,7 +19,7 @@ export class MovieService {
   } 
 
   getMovieById(id:number): Observable<Movie> {
-    return this.http.get<Movie>(AppSettings.apiUrl+`movie${id}`)
+    return this.http.get<Movie>(AppSettings.apiUrl+`movie/${id}`)
   }
 
   rent(id:number):Observable<Movie> {
@@ -27,6 +27,6 @@ export class MovieService {
   }
 
   checkIfRented(id:number): Observable<boolean> {
-    return this.http.get<boolean>(AppSettings.apiUrl+`check${id}`)
+    return this.http.get<boolean>(AppSettings.apiUrl+`check/${id}`)
   }
 }
