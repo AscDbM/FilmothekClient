@@ -1,0 +1,42 @@
+<form [formGroup]="paymentForm" (ngSubmit)="send()" class="container">
+    <div>
+      <mat-form-field appearance="standard" >
+        <mat-select placeholder="Credit Card Type" formControlName="ccType">
+          <mat-option value="VISA">VISA</mat-option>
+          <mat-option value="Master Card">Master Card</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" type="text" formControlName="ccName" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Credit Card Number</mat-label>
+        <input matInput placeholder="Credit Card Number" type="text" formControlName="ccNumber" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Security Number</mat-label>
+        <input matInput placeholder="Security Number" type="text" formControlName="cc3">
+      </mat-form-field>
+    </div>
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Month" formControlName="ccMonth">
+          <mat-option *ngFor=" let i of month" value="{{i}}">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Year" formControlName="ccYear">
+          <mat-option *ngFor="let i of year" value="{{i}}">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field> 
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!paymentForm.valid">send</button>
+    </div>  
+  </form>
+  

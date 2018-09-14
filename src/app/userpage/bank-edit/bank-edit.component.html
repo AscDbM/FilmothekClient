@@ -1,0 +1,15 @@
+<form [formGroup]="bankForm" (ngSubmit)="send()" class="container">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>IBAN</mat-label>
+      <input matInput placeholder="IBAN" type="text" formControlName="iban">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" type="text" formControlName="name">
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" [disabled]="!bankForm.valid">Send</button>
+</form>

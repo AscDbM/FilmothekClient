@@ -1,0 +1,40 @@
+<mat-card class="movieCard" *ngFor="let m of movie">
+  <div>
+    <span class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar"></div>
+        <mat-card-title>{{m.movieName}}</mat-card-title>
+        <mat-card-subtitle>{{m.genre}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://angular.io/assets/images/logos/angular/angular.svg"> <!-- example image-->
+      <mat-card-content>
+        <p *ngIf="m.length<20; else Shortened">{{m.content}}</p>
+        <ng-template #Shortened>
+          <p>{{m.content | slice:0:19}}...</p>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions>
+          <button mat-stroked-button (click)="navigateToDetails(m.id)">Details</button>
+      </mat-card-actions>
+      <mat-card-footer>
+        Length: {{m.length}} &nbsp;
+        User Rating: {{m.rating}} &nbsp;
+        FSK: {{m.fsk}}
+      </mat-card-footer>
+    </span>
+  </div>
+</mat-card>
+  
+<!--   
+  movieName: string; -----------------------
+  genre: string; ------------------------
+  length: number;
+  isSeries: boolean;
+  rating: number;
+  price: number;
+  languageDub: string;
+  languageSub: string;
+  release: string;
+  fsk: number;
+  content: string; --------------------------------
+} -->

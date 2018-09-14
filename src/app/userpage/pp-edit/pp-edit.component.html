@@ -1,0 +1,15 @@
+<form [formGroup]="ppForm" (ngSubmit)="send()" class="container">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Paypal Username</mat-label>
+        <input matInput placeholder="Paypal Username" type="text" formControlName="user">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="pw">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="!ppForm.valid">Send</button>
+  </form>
