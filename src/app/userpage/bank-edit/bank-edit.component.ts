@@ -28,6 +28,13 @@ export class BankEditComponent implements OnInit {
       iban: ['', Validators.pattern("[A-Z]{2}[0-9]{2}[0-9A-Z]{1,30}")], //2 Capitals -> 2 Numbers -> 1-30 Capitals or Numbers
       name: ['', Validators.required],
     })
+
+    this.getPayment();
+  }
+
+  getPayment() {
+    this.userService.getPayment()
+      .subscribe(x => this.bank=x);
   }
 
   send() {

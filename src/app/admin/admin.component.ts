@@ -10,6 +10,7 @@ import { User } from '../Models/user';
 import { UserService } from '../services/user.service';
 import { Table } from '../Models/table';
 import { MatTabGroup } from '@angular/material';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin',
@@ -22,8 +23,8 @@ import { MatTabGroup } from '@angular/material';
 export class AdminComponent implements AfterViewInit, OnInit  {
 
   customers = [1,2,3,4,5];
-  movies: Movie[];
-  movieTable: Table[];
+  movies: Movie[] = [];
+  movieTable: Table[] = [];
   loadedMovies = false;
   //tabGroup = new MatTabGroup();
 
@@ -36,15 +37,15 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   ) { }
 
   ngOnInit() {
-
+    this.createTable();
   }
 
   ngAfterViewInit() {
-    //this.tabGroup = {  }
+    /*this.tabGroup = {  }
     while(!this.loadedMovies) {
       if(this.tabGroup.selectedIndex=2)
       this.createTable();
-    }
+    }*/
   }
 
 
@@ -52,10 +53,12 @@ export class AdminComponent implements AfterViewInit, OnInit  {
 
   createTable() {
     this.movieService.getAllMovies()
-        .subscribe(x => this.movies = x);
-    this.movies.forEach(function(m, i,) {
-      this.movieTable.push(i,m.movieName);
-      console.log(this.movieTable[i]);
-    });
+      .subscribe(
+          x =>{ this.movies = x;
+
+          this.movies.forEach((m, i) =>  {
+            this.movieTable.push({index: i , entry: m.movieName});
+            console.log(this.movieTable[i].entry)});       
+          })
   }
 }

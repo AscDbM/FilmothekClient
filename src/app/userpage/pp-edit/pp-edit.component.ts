@@ -29,9 +29,16 @@ export class PpEditComponent implements OnInit {
       user: ['', Validators.required],
       pw: ['', Validators.required],
     })
+    this.getPayment();
+  }
+
+  getPayment() {
+    this.userService.getPayment()
+      .subscribe(x => this.pp=x);
   }
 
   send() {
+
     this.pp.paypalLogin = this.ppForm.controls.user.value;
     this.pp.paypalPassword = this.ppForm.controls.pw.value;
     this.userService.editPayment(this.pp)

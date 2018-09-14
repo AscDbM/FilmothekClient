@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 import { UserService } from '../../services/user.service';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../Models/movie';
 import { AppSettings } from '../../appSettings';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -39,9 +41,9 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(x => this.movie = x);
   }
 
-  rent() {
+  async rent() {
     console.log(this.urlId);
-    this.movieService.rent(this.urlId)
+    await this.movieService.rent(this.urlId)
       .subscribe();
     this.rentState(this.urlId);
   }

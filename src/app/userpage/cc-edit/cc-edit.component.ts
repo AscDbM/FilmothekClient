@@ -44,8 +44,14 @@ export class CcEditComponent implements OnInit {
      this.year.push(i.toString());
    }
 
-
+   this.getPayment();
  }
+
+ getPayment() {
+   this.userService.getPayment()
+    .subscribe(x => this.newPayment=x);
+ }
+
 
  get form() {
    return this.paymentForm.controls;
