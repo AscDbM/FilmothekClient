@@ -32,7 +32,7 @@ export class UserService {
   }
 
   editPayment(payment: Payment): Observable<Payment> {
-    return this.http.put<Payment>(`${AppSettings.apiUrl}payment`, payment, AppSettings.httpOptions)
+    return this.http.put<Payment>(`${AppSettings.apiUrl}addpayment`, payment, AppSettings.httpOptions)
   }
 
   

@@ -35,6 +35,8 @@ export class BankEditComponent implements OnInit {
     this.bank.bankaccOwner = this.bankForm.controls.name.value;
     this.userService.editPayment(this.bank)
       .subscribe();
+
+    this.router.navigateByUrl('myPage');
   }
   
 

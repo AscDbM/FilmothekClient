@@ -8,7 +8,7 @@
       </mat-card-header>
       <img mat-card-image [src]="imgPath"> <!-- example image-->
       <mat-card-content>
-        <p *ngIf="m.length<20; else Shortened">{{m.content}}</p>
+        <p *ngIf="m.content.length<20; else Shortened">{{m.content}}</p>
         <ng-template #Shortened>
           <p>{{m.content | slice:0:19}}...</p>
         </ng-template>

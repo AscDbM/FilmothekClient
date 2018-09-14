@@ -6,6 +6,7 @@ import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../Models/movie';
 import { AppSettings } from '../../appSettings';
 
+
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',

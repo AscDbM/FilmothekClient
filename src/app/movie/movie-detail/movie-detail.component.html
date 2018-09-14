@@ -1,6 +1,6 @@
 <!-- fullscren version-->
 <div *ngIf="isFullscreen">
-  <p>fullscreen</p>
+  <p>watching now</p>
 </div>
 
 <!-- normal version -->
@@ -15,7 +15,7 @@
     <mat-list-item>Available Languages: {{movie.languageDub}}</mat-list-item>
     <mat-list-item>Subtitles: {{movie.languageSub}}</mat-list-item>
     <mat-list-item>Rating: {{movie.rating}}/10</mat-list-item>
-    <mat-list-item>Release Date: {{movie.date | date:shortDate}}</mat-list-item>
+    <mat-list-item>Release Date: {{movie.release | date:shortDate}}</mat-list-item>
     <mat-list-item>FSK :{{movie.fsk}}</mat-list-item>
   </mat-list>
   <button mat-raised-button *ngIf="!isRented" (click)="rent()">Rent for {{movie.price}}</button>

@@ -12,4 +12,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  hasElevatedPermission(): boolean {
+    let user = JSON.parse(localStorage.getItem("currentUser"));
+    if(user.permission > 1) 
+    {
+      return true    
+    }    
+    return false;
+  }
+
 }

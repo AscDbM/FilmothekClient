@@ -22,8 +22,8 @@ export class MovieService {
     return this.http.get<Movie>(AppSettings.apiUrl+`movie/${id}`)
   }
 
-  rent(id:number):Observable<Movie> {
-    return this.http.post<Movie>(AppSettings.apiUrl+'rent', id, AppSettings.httpOptions);
+  rent(id:number):Observable<number> {
+    return this.http.post<number>(AppSettings.apiUrl+'rent', id, AppSettings.httpOptions);
   }
 
   checkIfRented(id:number): Observable<boolean> {

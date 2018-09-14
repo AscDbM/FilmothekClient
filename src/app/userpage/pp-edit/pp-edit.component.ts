@@ -36,6 +36,8 @@ export class PpEditComponent implements OnInit {
     this.pp.paypalPassword = this.ppForm.controls.pw.value;
     this.userService.editPayment(this.pp)
       .subscribe();
+
+    this.router.navigateByUrl('myPage');
   }
   
 

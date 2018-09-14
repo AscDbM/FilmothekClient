@@ -16,3 +16,6 @@
 <nav>
   <a routerLink='/movies'>Movies</a>
 </nav>
+<nav *ngIf="hasElevatedPermission()">
+  <a routerLink='/admin'>Admin Stuff</a>
+</nav>

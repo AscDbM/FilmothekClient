@@ -34,7 +34,5 @@ export class MovieComponent implements OnInit {
 
   navigateToDetails(id:number) {
     this.router.navigateByUrl(`/movie/${id}`)
-  }
- 
-
+  } 
 }
