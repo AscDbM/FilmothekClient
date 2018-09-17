@@ -26,12 +26,16 @@ export class UserEditComponent implements OnInit {
 
   getUser(id:number) {
     this.userService.getUserById(id)
-      .subscribe();
+      .subscribe(x => this.user = x);
   }
 
   send() {
-    this.userService.editUser(this.user)
-      .subscribe
+    this.userService.editUserById(this.user)
+      .subscribe();
+  }
+
+  disable() {
+    
   }
 
 }
