@@ -1,11 +1,17 @@
 <mat-tab-group>
   <mat-tab label="Personal Data">
-    <app-account-info></app-account-info>
+    <ng-template matTabContent>
+      <app-account-info></app-account-info>
+    </ng-template>
   </mat-tab>
   <mat-tab label="Payment Information">
-    <app-payment-info></app-payment-info>
+    <ng-template matTabContent>
+      <app-payment-info></app-payment-info>
+    </ng-template>
   </mat-tab>
-  <mat-tab label="Settings">
-    stuff
+  <mat-tab label="History">
+    <ng-template matTabContent>
+      <app-user-history></app-user-history>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>

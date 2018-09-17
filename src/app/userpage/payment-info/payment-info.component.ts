@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentInfoComponent implements OnInit {
 
-  payment: Payment;
-  newPayment: Payment;
+  payment = new Payment;
+
 
 
   constructor(

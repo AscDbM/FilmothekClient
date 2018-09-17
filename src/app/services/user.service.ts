@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { User } from '../Models/user';
 import { AppSettings } from '../appSettings';
 import { Payment } from '../Models/payment';
+import { History } from '../Models/history';
 
 
 @Injectable({
@@ -35,6 +36,9 @@ export class UserService {
     return this.http.post<Payment>(`${AppSettings.apiUrl}addpayment`, payment, AppSettings.httpOptions)
   }
 
+  getHistory(): Observable<History[]> {
+    return this.http.get<History[]>(`${AppSettings.apiUrl}history`)
+  }
   
 
   // /** POST: add a new hero to the server */
