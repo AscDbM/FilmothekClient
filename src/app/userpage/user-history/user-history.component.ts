@@ -26,7 +26,7 @@ export class UserHistoryComponent implements OnInit {
 
   getHistory() {
     this.userService.getHistory()
-      .subscribe(x => this.history = x)
+      .subscribe(x => this.history = x);
   }
 
   

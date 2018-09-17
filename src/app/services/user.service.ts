@@ -59,6 +59,10 @@ export class UserService {
   editPw(pw: string): Observable<any> {
     return this.http.post<any>(AppSettings.apiUrl+"editPW",pw, AppSettings.httpOptions);
   }
+
+  getHistoryById(id:number): Observable<History[]> {
+    return this.http.get<History[]>(AppSettings.apiUrl+"history/"+id);
+  }
   
 
   // /** POST: add a new hero to the server */
