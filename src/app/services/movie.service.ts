@@ -30,6 +30,10 @@ export class MovieService {
     return this.http.get<boolean>(AppSettings.apiUrl+`check/${id}`)
   }
 
+  addMovie(movie:Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${AppSettings.apiUrl}addMovie`, movie, AppSettings.httpOptions);
+  }
+
   delete(id:number):Observable<any> {
     return this.http.delete<any>(AppSettings.apiUrl+`deleteMovie/${id}`, AppSettings.httpOptions);
   }

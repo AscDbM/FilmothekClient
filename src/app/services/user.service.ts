@@ -41,7 +41,7 @@ export class UserService {
   // addHero (hero: Hero): Observable<Hero> {
   //   return this.http.post<Hero>((this.heroesUrl), hero, httpOptions).pipe(
   //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.heroId}`)),
-  //     catchError(this.handleError<Hero>('addHero'))
+  //     catchError(this.handleError<Hero>('addHero')) 
   //   );
   // }
   

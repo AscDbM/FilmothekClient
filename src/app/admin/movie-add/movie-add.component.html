@@ -1,0 +1,82 @@
+<h2>Add Movie</h2>
+
+<form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()" class="container">
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label>Movie Name</mat-label>
+      <input matInput  placeholder="Movie Name" type="text" formControlName="movieName" >
+    </mat-form-field>
+  </div>   
+
+ <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="gerne">Genre: </mat-label>
+      <input matInput  placeholder="Genre" type="text" formControlName="genre" >
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="length">Length: </mat-label>
+      <input matInput  placeholder="Length" type="text" formControlName="length" >
+    </mat-form-field>
+  </div> 
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-select placeholder="Is it a series" formControlName="isSeries">
+        <mat-option value = false>No</mat-option>
+        <mat-option value = true>Yes</mat-option>
+      </mat-select>
+    </mat-form-field> 
+  </div>
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="rating">Rating: </mat-label>
+      <input matInput  placeholder="Rating" type="float" formControlName="rating" >
+    </mat-form-field>
+  </div> 
+
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="price">Price: </mat-label>
+      <input matInput  placeholder="Price" type="float" formControlName="price" >
+    </mat-form-field>
+  </div> 
+
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="languageDub">Language Dub: </mat-label>
+      <input matInput  placeholder="Language Dub" type="text" formControlName="languageDub" >
+    </mat-form-field>
+  </div> 
+
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="languageSub">Language Sub: </mat-label>
+      <input matInput  placeholder="Language Sub" type="text" formControlName="languageSub" >
+    </mat-form-field>
+  </div> 
+
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="release">Release: </mat-label>
+      <input matInput  placeholder="Release" type="date" formControlName="release" >
+    </mat-form-field>
+  </div> 
+ 
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="FSK">FSK: </mat-label>
+      <input matInput  placeholder="FSK" type="text" formControlName="FSK" >
+    </mat-form-field>
+  </div> 
+  <div>
+    <mat-form-field appearance="standard" >
+      <mat-label for="content">Content: </mat-label>
+      <input matInput  placeholder="Content" type="text" formControlName="content" >
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" [disabled]="!addMovieForm.valid">Add Movie</button>
+  </div> 
+</form>

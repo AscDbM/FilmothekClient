@@ -40,4 +40,9 @@ export class MovieControlComponent implements OnInit {
     this.movieService.editMovie(this.movie)
       .subscribe();
   }
+  delete(id:number) {
+    console.log(this.movie.id+"\n"+this.movie.fsk+"\n"+this.movie.length)
+    this.movieService.delete(id)
+      .subscribe();
+  }
 }

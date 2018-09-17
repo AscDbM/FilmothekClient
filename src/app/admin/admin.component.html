@@ -5,12 +5,24 @@
     </ng-template>
   </mat-tab>
   <mat-tab label="Customer Overview">
-    <ng-template matTabContent>
-
+      <ng-template matTabContent>
+      <table mat-table [dataSource]="userTable" class="UserTable">
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let cell">{{cell.index}}</td>
+          </ng-container>
+          <ng-container matColumnDef="user">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
+            <td mat-cell *matCellDef="let cell" ><a href="http://localhost:4200/editCustomer/{{cell.index}}">{{cell.entry}}</a></td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
     </ng-template>
   </mat-tab>
   <mat-tab label="Movie Overview">
     <ng-template matTabContent>
+      <button mat-raised-button color=""><a href="http://localhost:4200/addMovie">Add Movie</a></button>
       <table mat-table [dataSource]="movieTable" class="MovieTable">
         <ng-container matColumnDef="index">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>

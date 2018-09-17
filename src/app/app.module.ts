@@ -38,7 +38,8 @@ import { PpEditComponent } from './userpage/pp-edit/pp-edit.component';
 import { BankEditComponent } from './userpage/bank-edit/bank-edit.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { AdminComponent } from './admin/admin.component';
-import { MovieControlComponent } from './admin/movie-control/movie-control.component'; 
+import { MovieControlComponent } from './admin/movie-control/movie-control.component';
+import { MovieAddComponent } from './admin/movie-add/movie-add.component'; 
 
 
 
@@ -61,6 +62,7 @@ import { MovieControlComponent } from './admin/movie-control/movie-control.compo
     MovieDetailComponent,
     AdminComponent,
     MovieControlComponent,
+    MovieAddComponent,
 
   ],
   imports: [

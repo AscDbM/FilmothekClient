@@ -1,5 +1,20 @@
-<h3>Credit Card:</h3>
+<h3>PayPal:</h3>
 <!--<mat-list NgIf="!(payment.type == null)"> -->
+<mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>Paypal Username: {{payment.paypalLogin}}</mat-list-item>
+</mat-list>
+
+<h3>Bank Account:</h3>
+<mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>Owner: {{payment.BankaccOwner}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>IBAN : {{payment.BankaccIBAN}}.slice(3,10).replace(/./g.,'*')</mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>
+
+<h3>Credit Card:</h3>
 <mat-list>
     <mat-divider></mat-divider>
     <mat-list-item>Type: {{payment.creditcardTyp}}</mat-list-item>

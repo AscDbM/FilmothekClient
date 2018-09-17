@@ -26,6 +26,9 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   movies: Movie[] = [];
   movieTable: Table[] = [];
   loadedMovies = false;
+  users: User[] = [];
+  userTable: Table[] = [];
+  loadedUsers = false;
   displayedColumns: string[] = ['index','entry'];
   //tabGroup = new MatTabGroup();
 
@@ -33,6 +36,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   //@ViewChild('tabGroup') tabGroup;
   constructor(
     private movieService: MovieService,
+    private userService: UserService,
     //private tabGroup: MatTabGroup 
     //private tabGroup: MatTabGroup
   ) { }
@@ -47,13 +51,13 @@ export class AdminComponent implements AfterViewInit, OnInit  {
       if(this.tabGroup.selectedIndex=2)
       this.createTable();
     }*/
-    this.createTable();
+    this.createMoviesTable();
   }
 
 
   
 
-  createTable() {
+  createMoviesTable() {
     this.movieService.getAllMovies()
       .subscribe(
           x =>{ this.movies = x;
