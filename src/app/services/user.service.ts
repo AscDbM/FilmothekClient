@@ -44,6 +44,10 @@ export class UserService {
     return this.http.get<History[]>(`${AppSettings.apiUrl}history`);
   }
 
+  getAllAdmins(): Observable<User[]> {
+    return this.http.get<User[]>(`${AppSettings.apiUrl}allAdmins`);
+  }
+
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${AppSettings.apiUrl}allUsers`);
   }
