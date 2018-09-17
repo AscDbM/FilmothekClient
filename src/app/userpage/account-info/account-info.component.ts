@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
@@ -10,7 +10,7 @@ import { User } from '../../Models/user';
 })
 export class AccountInfoComponent implements OnInit {
 
-  user: User
+  user = new User;
 
   constructor(
     private userService: UserService,

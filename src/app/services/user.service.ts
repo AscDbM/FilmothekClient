@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { User } from '../Models/user';
 import { AppSettings } from '../appSettings';
 import { Payment } from '../Models/payment';
+import { History } from '../Models/history';
 
 
 @Injectable({
@@ -19,8 +20,12 @@ export class UserService {
   
 
   getCurrentUser(): Observable<User> {
-    return this.http.get<User>(AppSettings.apiUrl+"user")
+    return this.http.get<User>(AppSettings.apiUrl+"user");
     //.pipe(catchError(this.handleError('', {}) //implement an error handler
+  }
+
+  getUserById(id:number): Observable<User> {
+    return this.http.get<User>(AppSettings.apiUrl+"user/"+id);
   }
 
   register(user: User): Observable<User> {
@@ -35,6 +40,21 @@ export class UserService {
     return this.http.post<Payment>(`${AppSettings.apiUrl}addpayment`, payment, AppSettings.httpOptions)
   }
 
+  getHistory(): Observable<History[]> {
+    return this.http.get<History[]>(`${AppSettings.apiUrl}history`);
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${AppSettings.apiUrl}allUsers`);
+  }
+
+  delete(id:number): Observable<any> {
+    return this.http.delete<any>(`${AppSettings.apiUrl}deleteCustomer/${id}`);
+  }
+
+  editUser(user): Observable<User> {
+    return this.http.post<User>(AppSettings.apiUrl+"editUser", user, AppSettings.httpOptions);
+  }
   
 
   // /** POST: add a new hero to the server */

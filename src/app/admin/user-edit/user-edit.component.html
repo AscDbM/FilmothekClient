@@ -1,0 +1,26 @@
+<form (ngSubmit)="send()" class="container">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Username: </mat-label>
+      <input matInput [(ngModel)]="user.login" type="text" name="name">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>First Name: </mat-label>
+      <input matInput [(ngModel)]="user.firstName" type="text" name="first" >
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Last Name: </mat-label>
+      <input matInput [(ngModel)]="user.lastName" type="text" name="last">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Address: </mat-label>
+      <input matInput [(ngModel)]="user.address" type="text" name="address">
+    </mat-form-field>
+  </div>
+</form>

@@ -19,7 +19,12 @@ import { PpEditComponent } from './userpage/pp-edit/pp-edit.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { MovieControlComponent } from './admin/movie-control/movie-control.component';
+<<<<<<< HEAD
 import { MovieAddComponent } from './admin/movie-add/movie-add.component';
+=======
+import { UserEditComponent } from './admin/user-edit/user-edit.component';
+import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
+>>>>>>> a473a1eb90dbf528740188a9a758bd2e71803f5c
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -35,7 +40,12 @@ const routes: Routes = [
     { path: 'movie/:id', component: MovieDetailComponent},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
+<<<<<<< HEAD
     { path: 'addMovie', component: MovieAddComponent, canActivate: [ElevatedGuard]},
+=======
+    { path: 'history/:id', component: UserHistoryAdminComponent, canActivate:[ElevatedGuard]},
+    { path: 'editUser/:id', component: UserEditComponent, canActivate:[ElevatedGuard]},
+>>>>>>> a473a1eb90dbf528740188a9a758bd2e71803f5c
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 
