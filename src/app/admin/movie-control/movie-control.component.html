@@ -1,5 +1,4 @@
-<h2>{{movie.movieName}}</h2>
-<!--<img class="preview" src="{{imgUrl}}/{{movie.id}}">-->
+<!--<h2>{{movie.movieName}}</h2>
 <p>{{movie.content}}</p>
 <mat-list>
   <mat-list-item>Genre: {{movie.genre}}</mat-list-item>
@@ -14,61 +13,57 @@
 <button mat-raised-button (click)="delete()">Rent for {{movie.price}}</button>
 <button mat-raised-button (click)="Save Edits()">Watch</button>
 
-
-<form [formGroup]="MovieForm" (ngSubmit)="send()" class="container">
-    <div>
-
-    </div>
+-->
+<form (ngSubmit)="send()" class="container">
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Movie Name:</mat-label>
-        <input matInput placeholder="{{movie.movieName}}}" type="text" formControlName="name" >
+        <input matInput [(ngModel)]="movie.movieName" type="text" name="name">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Genre</mat-label>
-        <input matInput placeholder="{{movie.genre}}}" type="text" formControlName="genre" >
+        <input matInput [(ngModel)]="movie.genre" type="text" name="genre" >
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Language</mat-label>
-        <input matInput placeholder="{{movie.languageDub}}}" type="text" formControlName="dub">
+        <input matInput [(ngModel)]="movie.languageDub" type="text" name="dub">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Subtitles</mat-label>
-        <input matInput placeholder="{{movie.languageSub}}}" type="text" formControlName="sub">
+        <input matInput [(ngModel)]="movie.languageSub" type="text" name="sub">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Lenght(minutes)</mat-label>
-        <input matInput placeholder="{{movie.length}}}" type="text" formControlName="length">
+        <input matInput [(ngModel)]="movie.length" type="text" name="length">
       </mat-form-field>
     </div>
-
-
-
-
-
-
-
-
-
-      <mat-form-field appearance="standard">
-        <mat-select placeholder="Month" formControlName="ccMonth">
-          <mat-option *ngFor=" let i of month" value="{{i}}">{{i}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="standard">
-        <mat-select placeholder="Year" formControlName="ccYear">
-          <mat-option *ngFor="let i of year" value="{{i}}">{{i}}</mat-option>
-        </mat-select>
-      </mat-form-field> 
     <div>
-      <button mat-raised-button color="primary" [disabled]="!paymentForm.valid">send</button>
-    </div>  
+      <mat-form-field appearance="standard">
+        <mat-label>FSK</mat-label>
+        <input matInput [(ngModel)]="movie.fsk" type="text" name="fsk">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Release Date</mat-label>
+        <input matInput [(ngModel)]="movie.release" type="datetime" name="release">
+      </mat-form-field> 
+    </div>
+    <div>
+      <mat-form-field appearance="standard" class="desc">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="movie.content" type="text" name="content">
+      </mat-form-field> 
+    </div>
+    <div>
+      <button mat-raised-button color="primary">send</button>
+    </div>
   </form>

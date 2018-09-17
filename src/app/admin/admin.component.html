@@ -18,7 +18,7 @@
         </ng-container>
         <ng-container matColumnDef="entry">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>
-          <td mat-cell *matCellDef="let cell">{{cell.entry}}</td>
+          <td mat-cell *matCellDef="let cell" ><a href="http://localhost:4200/editMovie/{{cell.index}}">{{cell.entry}}</a></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

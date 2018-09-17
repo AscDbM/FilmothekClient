@@ -58,9 +58,9 @@ export class AdminComponent implements AfterViewInit, OnInit  {
       .subscribe(
           x =>{ this.movies = x;
 
-          this.movies.forEach((m, i) =>  {
-            this.movieTable.push({index: i , entry: m.movieName});
-            console.log(this.movieTable[i].entry)});       
+          this.movies.forEach((m) =>  {
+            this.movieTable.push({index: m.id , entry: m.movieName});
+            /*console.log(this.movieTable[i].entry)*/});       
           })
   }
 }

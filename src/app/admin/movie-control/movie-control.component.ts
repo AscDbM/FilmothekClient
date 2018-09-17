@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Movie } from '../../Models/movie';
@@ -13,7 +13,7 @@ import { MovieService } from "../../services/movie.service";
 })
 export class MovieControlComponent implements OnInit {
 
-  movie: Movie;
+  @Input() movie = new Movie;
   urlId: number;
   imgUrl=AppSettings.imgUrl;
  
@@ -26,11 +26,18 @@ export class MovieControlComponent implements OnInit {
 
   ngOnInit() {
     this.urlId = +this.route.snapshot.url.toString().slice(10);
+    console.log(this.urlId);
     this.getMovie(this.urlId);
   }
 
   getMovie(id:number) {
     this.movieService.getMovieById(id)
-      .subscribe(x => this.movie = x);
+      .subscribe(x => this.movie = x );
+  }
+
+  send() {
+    console.log(this.movie.id+"\n"+this.movie.fsk+"\n"+this.movie.length)
+    this.movieService.editMovie(this.movie)
+      .subscribe();
   }
 }
