@@ -39,13 +39,11 @@ import { BankEditComponent } from './userpage/bank-edit/bank-edit.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { MovieControlComponent } from './admin/movie-control/movie-control.component';
-<<<<<<< 
 import { MovieAddComponent } from './admin/movie-add/movie-add.component'; 
-=======
 import { UserHistoryComponent } from './userpage/user-history/user-history.component';
+import { UserHistoryAdminComponent} from './admin/user-history/user-history-admin.component';
 import { UserOverviewComponent } from './admin/user-overview/user-overview.component';
 import { UserEditComponent } from './admin/user-edit/user-edit.component'; 
->>>>>>> a473a1eb90dbf528740188a9a758bd2e71803f5cHEAD
 
 
 
@@ -68,13 +66,11 @@ import { UserEditComponent } from './admin/user-edit/user-edit.component';
     MovieDetailComponent,
     AdminComponent,
     MovieControlComponent,
-<<<<<<< HEAD
     MovieAddComponent,
-=======
     UserHistoryComponent,
     UserOverviewComponent,
     UserEditComponent,
->>>>>>> a473a1eb90dbf528740188a9a758bd2e71803f5c
+    UserHistoryAdminComponent,
 
   ],
   imports: [
