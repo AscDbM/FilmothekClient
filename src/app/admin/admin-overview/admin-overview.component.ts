@@ -12,7 +12,7 @@ import { User } from '../../Models/user';
 export class AdminOverviewComponent implements OnInit {
 
   users: User[]=[];
-  displayedColumn = ["id","last","first","address","user","pw","history","edit","delete"];
+  displayedColumns = ["id","last","first","address","user","history","edit","delete"];
 
   constructor(
     private userService: UserService,
@@ -20,16 +20,17 @@ export class AdminOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllUsers();
-  }
+    this.getAllAdmins();
+  } 
 
-  getAllUsers() {
-    this.userService.getAllUsers()
-      .subscribe(x => this.users = x)
-  }
+  getAllAdmins() {
+    this.userService.getAllAdmins()
+      .subscribe(x => {this.users = x
+        console.log(this.users);}
+      )}
 
   edit(id:number) {
-    this.router.navigateByUrl(`editUser/${id}`)
+    this.router.navigateByUrl(`editModerator/${id}`)
   }
   
   delete(id:number) {

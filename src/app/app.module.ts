@@ -43,7 +43,9 @@ import { MovieAddComponent } from './admin/movie-add/movie-add.component';
 import { UserHistoryComponent } from './userpage/user-history/user-history.component';
 import { UserOverviewComponent } from './admin/user-overview/user-overview.component';
 import { UserEditComponent } from './admin/user-edit/user-edit.component'; 
-
+import { AdminOverviewComponent } from './admin/admin-overview/admin-overview.component'; 
+import { AdminHistoryComponent } from './admin/admin-history/admin-history.component'; 
+import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 
 
 @NgModule({
@@ -69,6 +71,9 @@ import { UserEditComponent } from './admin/user-edit/user-edit.component';
     UserHistoryComponent,
     UserOverviewComponent,
     UserEditComponent,
+    AdminOverviewComponent,
+    AdminHistoryComponent,
+    UserHistoryAdminComponent,
 
   ],
   imports: [
