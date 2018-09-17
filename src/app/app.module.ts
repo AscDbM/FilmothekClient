@@ -41,7 +41,6 @@ import { AdminComponent } from './admin/admin.component';
 import { MovieControlComponent } from './admin/movie-control/movie-control.component';
 import { MovieAddComponent } from './admin/movie-add/movie-add.component'; 
 import { UserHistoryComponent } from './userpage/user-history/user-history.component';
-import { UserHistoryAdminComponent} from './admin/user-history/user-history-admin.component';
 import { UserOverviewComponent } from './admin/user-overview/user-overview.component';
 import { UserEditComponent } from './admin/user-edit/user-edit.component'; 
 
@@ -70,7 +69,6 @@ import { UserEditComponent } from './admin/user-edit/user-edit.component';
     UserHistoryComponent,
     UserOverviewComponent,
     UserEditComponent,
-    UserHistoryAdminComponent,
 
   ],
   imports: [

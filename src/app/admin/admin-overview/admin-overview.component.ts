@@ -1,18 +1,18 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
 
 @Component({
-  selector: 'app-user-overview',
-  templateUrl: './user-overview.component.html',
-  styleUrls: ['./user-overview.component.css']
+  selector: 'app-admin-overview',
+  templateUrl: './admin-overview.component.html',
+  styleUrls: ['./admin-overview.component.css']
 })
-export class UserOverviewComponent implements OnInit, AfterViewInit {
+export class AdminOverviewComponent implements OnInit {
 
   users: User[]=[];
-  displayedColumns = ["id","last","first","address","user","history","edit","delete"];
+  displayedColumn = ["id","last","first","address","user","pw","history","edit","delete"];
 
   constructor(
     private userService: UserService,
@@ -20,27 +20,20 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.getAllUsers()
-  }
-
-  ngAfterViewInit() {
-    
+    this.getAllUsers();
   }
 
   getAllUsers() {
     this.userService.getAllUsers()
-      .subscribe(x => {this.users = x;
-       console.log(this.users); 
-      })
+      .subscribe(x => this.users = x)
   }
 
   edit(id:number) {
     this.router.navigateByUrl(`editUser/${id}`)
   }
-
+  
   delete(id:number) {
     this.userService.delete(id)
       .subscribe();
   }
-
 }

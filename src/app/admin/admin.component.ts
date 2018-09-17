@@ -42,7 +42,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
   ) { }
 
   ngOnInit() {
-    
+    this.createMoviesTable();
   }
 
   ngAfterViewInit() {
@@ -51,7 +51,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
       if(this.tabGroup.selectedIndex=2)
       this.createTable();
     }*/
-    this.createMoviesTable();
+    
   }
 
 
