@@ -56,8 +56,12 @@ export class UserService {
     return this.http.delete<any>(`${AppSettings.apiUrl}deleteCustomer/${id}`);
   }
 
-  editUser(user): Observable<User> {
-    return this.http.post<User>(AppSettings.apiUrl+"editUser", user, AppSettings.httpOptions);
+  editUserById(user): Observable<User> {
+    return this.http.post<User>(AppSettings.apiUrl+"editUserAdmin", user, AppSettings.httpOptions);
+  }
+  
+  editPw(pw: string): Observable<any> {
+    return this.http.post<any>(AppSettings.apiUrl+"editPW",pw, AppSettings.httpOptions);
   }
   
 
