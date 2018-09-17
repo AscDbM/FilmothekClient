@@ -34,8 +34,15 @@ export class UserEditComponent implements OnInit {
       .subscribe();
   }
 
-  disable() {
-    
+  disable(): boolean {
+    for(let key in this.user) {
+      if(this.user[key] == null) return true
+    }
+    return false;
+  }
+
+  confirm() {
+    this.disable()
   }
 
 }
