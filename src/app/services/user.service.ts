@@ -69,7 +69,7 @@ export class UserService {
   }
 
   getAdminHistoryById(id:number): Observable<History[]> {
-    return this.http.get<History[]>(AppSettings.apiUrl+"moderatorHistory/"+id);
+    return this.http.get<History[]>(AppSettings.apiUrl+"adminhistory/"+id);
   }
   
 

@@ -13,16 +13,15 @@ export class AdminHistoryComponent implements OnInit {
 
   urlId:number;
   history:History[];
-  displayedColumns = ['id','Activity','Date'];
+  displayedColumns = ["id","activity","date"];
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-  )
-     {   }
+  ) { }
 
   ngOnInit() {
-    this.urlId = +this.route.snapshot.url.toString().slice(17);
+    this.urlId = +this.route.snapshot.url.toString().slice(13);
     this.getHistory(this.urlId);
   }
 

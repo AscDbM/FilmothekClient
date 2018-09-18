@@ -23,6 +23,7 @@ import { MovieAddComponent } from './admin/movie-add/movie-add.component';
 import { AdminHistoryComponent } from './admin/admin-history/admin-history.component';
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 import { UserEditComponent } from './admin/user-edit/user-edit.component';
+import { UserHistoryComponent } from './userpage/user-history/user-history.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -38,7 +39,7 @@ const routes: Routes = [
     { path: 'movie/:id', component: MovieDetailComponent, canActivate:[AuthGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate: [ElevatedGuard]},
     { path: 'deleteMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
-    { path: 'moderatorHistory/:id', component: AdminHistoryComponent, canActivate: [ElevatedGuard]},
+    { path: 'adminhistory/:id', component: AdminHistoryComponent, canActivate: [ElevatedGuard]},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
