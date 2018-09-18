@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { AppComponent } from './app.component';
@@ -43,6 +44,7 @@ import { AdminOverviewComponent } from './admin/admin-overview/admin-overview.co
 import { AdminHistoryComponent } from './admin/admin-history/admin-history.component'; 
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
@@ -70,6 +72,7 @@ import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.co
     AdminHistoryComponent,
     UserHistoryAdminComponent,
     MovieOverviewComponent,
+    NavigationComponent,
 
   ],
   imports: [
@@ -90,6 +93,7 @@ import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.co
     MatInputModule,
     MatTreeModule,
     MatTableModule,
+    MatSidenavModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
