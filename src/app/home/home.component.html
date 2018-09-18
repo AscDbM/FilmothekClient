@@ -1,16 +1,13 @@
-<nav>
+<nav *ngIf="!isLoggedIn()">
   <a routerLink='/login'>Login</a>
 </nav>
-<nav>
+<nav *ngIf="isLoggedIn()">
   <a routerLink='/logout'>Logout</a>
 </nav>
 <nav>
   <a routerLink='/register'>Register</a>
 </nav>
-<nav>
-  <a routerLink='/test'>Test</a>
-</nav>
-<nav>
+<nav *ngIf="isLoggedIn()">
   <a routerLink='/myPage'>MyPage</a>
 </nav>
 <nav>
