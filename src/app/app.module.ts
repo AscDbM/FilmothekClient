@@ -46,6 +46,7 @@ import { UserEditComponent } from './admin/user-edit/user-edit.component';
 import { AdminOverviewComponent } from './admin/admin-overview/admin-overview.component'; 
 import { AdminHistoryComponent } from './admin/admin-history/admin-history.component'; 
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
+import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { UserHistoryAdminComponent } from './admin/user-history/user-history-adm
     AdminOverviewComponent,
     AdminHistoryComponent,
     UserHistoryAdminComponent,
+    MovieOverviewComponent,
 
   ],
   imports: [

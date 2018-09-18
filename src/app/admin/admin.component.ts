@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
@@ -20,42 +20,24 @@ import { switchMap } from 'rxjs/operators';
 
 
 
-export class AdminComponent implements AfterViewInit, OnInit  {
+export class AdminComponent implements OnInit  {
 
-  customers = [1,2,3,4,5];
+
   movies: Movie[] = [];
   movieTable: Table[] = [];
-  loadedMovies = false;
-  users: User[] = [];
-  userTable: Table[] = [];
-  loadedUsers = false;
   displayedColumns: string[] = ['index','entry'];
-  //tabGroup = new MatTabGroup();
 
-
-  //@ViewChild('tabGroup') tabGroup;
   constructor(
     private movieService: MovieService,
     private userService: UserService,
-    //private tabGroup: MatTabGroup 
-    //private tabGroup: MatTabGroup
+
   ) { }
 
   ngOnInit() {
-    this.createMoviesTable();
+   this.createMoviesTable();
+   console.log(this.movieTable)
   }
-
-  ngAfterViewInit() {
-    /*this.tabGroup = {  }
-    while(!this.loadedMovies) {
-      if(this.tabGroup.selectedIndex=2)
-      this.createTable();
-    }*/
-    
-  }
-
-
-  
+ 
 
   createMoviesTable() {
     this.movieService.getAllMovies()
@@ -64,7 +46,7 @@ export class AdminComponent implements AfterViewInit, OnInit  {
 
           this.movies.forEach((m) =>  {
             this.movieTable.push({index: m.id , entry: m.movieName});
-            /*console.log(this.movieTable[i].entry)*/});       
+            });       
           })
   }
 }
