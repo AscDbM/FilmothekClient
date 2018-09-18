@@ -37,6 +37,7 @@ const routes: Routes = [
     { path: 'deleteMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
+    { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 

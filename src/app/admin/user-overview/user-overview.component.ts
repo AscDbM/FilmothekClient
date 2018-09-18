@@ -30,7 +30,6 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
   getAllUsers() {
     this.userService.getAllUsers()
       .subscribe(x => {this.users = x;
-       console.log(this.users); 
       })
   }
 
