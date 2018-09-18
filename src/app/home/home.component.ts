@@ -18,4 +18,9 @@ export class HomeComponent implements OnInit {
     if(user.permission > 1) return true;    
   }
 
+  isLoggedIn(): boolean {
+    if(localStorage.getItem('currentUser')) return true;
+    return false;
+  }
+
 }

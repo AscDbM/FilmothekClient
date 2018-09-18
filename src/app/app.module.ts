@@ -13,9 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
-//fake backend, only for testing
-//import { fakeBackendProvider } from "./Interceptor/fakeBackend";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -27,12 +26,10 @@ import { JwtInterceptor } from "./Interceptor/jwt.interceptor";
 import { UserService } from "./services/user.service";
 import { LoginService } from "./services/login.service";
 import { RegisterComponent } from './register/register.component';
-import { TestComponent } from './test/test.component';
 import { UserpageComponent } from './userpage/userpage.component';
 import { MovieComponent } from './movie/movie.component';
 import { AccountInfoComponent } from './userpage/account-info/account-info.component';
 import { PaymentInfoComponent } from './userpage/payment-info/payment-info.component';
-//import { PaymentEditComponent } from './userpage/payment-edit/payment-edit.component';
 import { CcEditComponent } from './userpage/cc-edit/cc-edit.component';
 import { PpEditComponent } from './userpage/pp-edit/pp-edit.component';
 import { BankEditComponent } from './userpage/bank-edit/bank-edit.component';
@@ -47,6 +44,7 @@ import { AdminOverviewComponent } from './admin/admin-overview/admin-overview.co
 import { AdminHistoryComponent } from './admin/admin-history/admin-history.component'; 
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
@@ -56,12 +54,10 @@ import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.co
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    TestComponent,
     UserpageComponent,
     MovieComponent,
     AccountInfoComponent,
     PaymentInfoComponent,
-    //PaymentEditComponent,
     CcEditComponent,
     PpEditComponent,
     BankEditComponent,
@@ -76,6 +72,7 @@ import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.co
     AdminHistoryComponent,
     UserHistoryAdminComponent,
     MovieOverviewComponent,
+    NavigationComponent,
 
   ],
   imports: [
@@ -96,6 +93,7 @@ import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.co
     MatInputModule,
     MatTreeModule,
     MatTableModule,
+    MatSidenavModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
