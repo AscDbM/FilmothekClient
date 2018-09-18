@@ -32,9 +32,13 @@ const routes: Routes = [
     { path: 'editCC', component: CcEditComponent, canActivate:[AuthGuard]},
     { path: 'editBank', component: BankEditComponent, canActivate: [AuthGuard]},
     { path: 'editPP', component: PpEditComponent, canActivate: [AuthGuard]},
+<<<<<<< HEAD
     { path: 'movie/:id', component: MovieDetailComponent},
     { path: 'addMovie', component: MovieAddComponent, canActivate: [ElevatedGuard]},
     { path: 'deleteMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
+=======
+    { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard]},
+>>>>>>> 3b3c311c2b9f8ddf85a2da66b1a5d3d8c41ca693
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
