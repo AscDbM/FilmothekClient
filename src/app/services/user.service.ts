@@ -67,6 +67,10 @@ export class UserService {
   getHistoryById(id:number): Observable<History[]> {
     return this.http.get<History[]>(AppSettings.apiUrl+"history/"+id);
   }
+
+  getAdminHistoryById(id:number): Observable<History[]> {
+    return this.http.get<History[]>(AppSettings.apiUrl+"moderatorHistory/"+id);
+  }
   
 
   // /** POST: add a new hero to the server */

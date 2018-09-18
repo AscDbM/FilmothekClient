@@ -13,7 +13,7 @@ export class AdminHistoryComponent implements OnInit {
 
   urlId:number;
   history:History[];
-  displayedColumns = ['id','name','sDate','eDate'];
+  displayedColumns = ['id','Activity','Date'];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +22,12 @@ export class AdminHistoryComponent implements OnInit {
      {   }
 
   ngOnInit() {
-    this.urlId = +this.route.snapshot.url.toString().slice(8);
+    this.urlId = +this.route.snapshot.url.toString().slice(17);
     this.getHistory(this.urlId);
   }
 
   getHistory(id:number) {
-    this.userService.getHistoryById(id)
+    this.userService.getAdminHistoryById(id)
       .subscribe(x => this.history = x);
   }
 
