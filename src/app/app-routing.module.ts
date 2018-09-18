@@ -21,6 +21,8 @@ import { AdminComponent } from './admin/admin.component';
 import { MovieControlComponent } from './admin/movie-control/movie-control.component';
 import { MovieAddComponent } from './admin/movie-add/movie-add.component';
 import { AdminHistoryComponent } from './admin/admin-history/admin-history.component';
+import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
+import { UserEditComponent } from './admin/user-edit/user-edit.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -33,13 +35,15 @@ const routes: Routes = [
     { path: 'editCC', component: CcEditComponent, canActivate:[AuthGuard]},
     { path: 'editBank', component: BankEditComponent, canActivate: [AuthGuard]},
     { path: 'editPP', component: PpEditComponent, canActivate: [AuthGuard]},
-    { path: 'movie/:id', component: MovieDetailComponent},
+    { path: 'movie/:id', component: MovieDetailComponent, canActivate:[AuthGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate: [ElevatedGuard]},
     { path: 'deleteMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'moderatorHistory/:id', component: AdminHistoryComponent, canActivate: [ElevatedGuard]},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
+    { path: 'history/:id', component: UserHistoryAdminComponent, canActivate: [ElevatedGuard]},
+    { path: 'editUser/:id', component: UserEditComponent, canActivate: [ElevatedGuard]},
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 
