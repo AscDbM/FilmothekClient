@@ -80,15 +80,7 @@ export class UserService {
     return this.http.post<User>(AppSettings.apiUrl+"createAdmin",user,AppSettings.httpOptions);
   }
 
-  // /** POST: add a new hero to the server */
-  // addHero (hero: Hero): Observable<Hero> {
-  //   return this.http.post<Hero>((this.heroesUrl), hero, httpOptions).pipe(
-  //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.heroId}`)),
-  //     catchError(this.handleError<Hero>('addHero')) 
-  //   );
-  // }
-  
-  /* error handerl
-  private handleError(???)
-  */
+  deleteAdmin(id:number):Observable<any> {
+    return this.http.delete<any>(AppSettings.apiUrl+"deleteAdmin/"+id);
+  }
 }
