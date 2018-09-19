@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
+import { UserEditComponent } from '../user-edit/user-edit.component';
 
 @Component({
   selector: 'app-user-overview',
@@ -36,15 +37,18 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
   }
 
   edit(user:User) {
-    const dialogRef = this.dialog.open(UserOverviewComponentDialog, {
+    const dialogRef = this.dialog.open(UserEditComponent, {
       width: '250px',
       data: {
-        username: user.login, 
-        firstname: user.firstName,
-        lastname: user.lastName,
-        address: user.address
+        login: user.login, 
+        firstName: user.firstName,
+        lastName: user.lastName,
+        address: user.address,
+        id: user.id
       }
     });
+
+
   }
 
   delete(id:number) {
@@ -53,71 +57,3 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
   }
 
 }
-
-@Component({
-  templateUrl: 'user-overview-dialog.html'
-})
-export class UserOverviewComponentDialog {
-  constructor(
-    public dialogRef: MatDialogRef<UserOverviewComponentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data:User,  
-    private userService:UserService,
-    //private route:ActivatedRoute,
-    
-    ) {}
-
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
-
-
-    
-  urlId:number
-  @Input() user = new User();
-
-  ngOnInit() {
-    this.urlId = 1;//+this.route.snapshot.url.toString().slice(9);
-    this.getUser(this.urlId);
-  }
-
-  getUser(id:number) {
-    this.userService.getUserById(id)
-      .subscribe(x => this.user = x);
-  }
-
-  send() {
-    this.userService.editUserById(this.user)
-      .subscribe();
-  }
-
-    
-}
-/*
-
-
-  urlId:number
-  @Input() user = new User();
-
-  constructor(
-    private userService:UserService,
-    private route:ActivatedRoute,
-  ) { }
-
-  ngOnInit() {
-    this.urlId = +this.route.snapshot.url.toString().slice(9);
-    this.getUser(this.urlId);
-  }
-
-  getUser(id:number) {
-    this.userService.getUserById(id)
-      .subscribe(x => this.user = x);
-  }
-
-  send() {
-    this.userService.editUserById(this.user)
-      .subscribe();
-  }
-
-
-
-*/
