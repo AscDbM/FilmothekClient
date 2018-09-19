@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
@@ -19,8 +19,8 @@ export class AdminOverviewComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private dialog: MatDialog,
+    private changeDetect: ChangeDetectorRef,
   ) { }
 
   ngOnInit() {
@@ -38,16 +38,18 @@ export class AdminOverviewComponent implements OnInit {
       width: '250px',
       data: user
     })
+    
   }
   
   delete(id:number) {
-    this.userService.delete(id)
-      .subscribe();
+    this.userService.deleteAdmin(id)
+      .subscribe( () => this.changeDetect.detectChanges());    
   }
 
   create() {
-    let dialogReg = this.dialog.open(AdminCreateComponent, {
+    let dialogRef = this.dialog.open(AdminCreateComponent, {
       width: '300px'
-    })
+    });
+    dialogRef.afterClosed().subscribe( () => this.changeDetect.detectChanges())
   }
 }
