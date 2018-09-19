@@ -13,7 +13,7 @@ import { Router, ActivatedRoute, Route } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { invalid } from '@angular/compiler/src/render3/view/util';
-import { MovieOverviewComponent, DialogData } from '../movie-overview/movie-overview.component';
+import { MovieOverviewComponent } from '../movie-overview/movie-overview.component';
 
 
 @Component({
@@ -23,15 +23,11 @@ import { MovieOverviewComponent, DialogData } from '../movie-overview/movie-over
 })
 
 export class MovieAddComponent implements OnInit {
-
-  animal: string;
-  name: string;
   addMovieForm: FormGroup;
   submitted = false;
 
   constructor(        
     public dialogRef: MatDialogRef<MovieAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,

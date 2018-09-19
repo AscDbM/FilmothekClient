@@ -1,4 +1,4 @@
-<form (ngSubmit)="send()" class="container">
+<form class="container">
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Movie Name:</mat-label>
@@ -38,17 +38,19 @@
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Release Date</mat-label>
-        <input matInput [(ngModel)]="movie.release" type="datetime" name="release">
+        <input matInput [(ngModel)]="movie.release" type="date" name="release">
       </mat-form-field> 
     </div>
     <div>
       <mat-form-field appearance="standard" class="desc">
         <mat-label>Description</mat-label>
-        <input matInput [(ngModel)]="movie.content" type="text" name="content">
-      </mat-form-field> 
+        <textarea  matInput [(ngModel)]="movie.content" type="text" name="content"></textarea>
+      </mat-form-field>
     </div>
     <div>
-      <button mat-raised-button color="primary">send</button>
+      <button mat-raised-button color="primary" (click)="send()" >send</button>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="close()" >close</button>
     </div>
   </form>
-  <button mat-raised-button color="primary"(click)="delete(movie.id)">delete</button>

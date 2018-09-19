@@ -1,6 +1,6 @@
 <h2>Add Movie</h2>
 
-<form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()" class="container">
+<form [formGroup]="addMovieForm" class="container">
   <div>
     <mat-form-field appearance="standard" >
       <mat-label>Movie Name</mat-label>
@@ -78,6 +78,6 @@
     </mat-form-field>
   </div>
   <div>
-    <button mat-raised-button color="primary" [disabled]="!addMovieForm.valid">Add Movie</button>
+    <button mat-raised-button color="primary" [disabled]="!addMovieForm.valid" (click)="onSubmit()" >Add Movie</button>
   </div> 
 </form>

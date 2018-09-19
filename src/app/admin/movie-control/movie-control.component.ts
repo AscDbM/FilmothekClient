@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Movie } from '../../Models/movie';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AppSettings } from '../../appSettings';
 import { UserService } from '../../services/user.service';
 import { MovieService } from "../../services/movie.service";
@@ -13,22 +14,25 @@ import { MovieService } from "../../services/movie.service";
 })
 export class MovieControlComponent implements OnInit {
 
-  @Input() movie = new Movie;
+  //@Input() newMovie = new Movie;
+  @Input() movie = this.data;
   urlId: number;
   imgUrl=AppSettings.imgUrl;
  
   constructor(
+    public dialogRef: MatDialogRef<MovieControlComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Movie,
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
-    private movieService: MovieService,
-  ) { }
+    private movieService: MovieService
+    ) { }
 
-  ngOnInit() {
-    this.urlId = +this.route.snapshot.url.toString().slice(10);
-    console.log(this.urlId);
-    this.getMovie(this.urlId);
-  }
+   ngOnInit() {
+  //   // this.urlId = +this.route.snapshot.url.toString().slice(10);
+  //   // console.log(this.urlId);
+  //   this.getMovie(this.movie.id);
+   }
 
   getMovie(id:number) {
     this.movieService.getMovieById(id)
@@ -36,13 +40,12 @@ export class MovieControlComponent implements OnInit {
   }
 
   send() {
-    console.log(this.movie.id+"\n"+this.movie.fsk+"\n"+this.movie.length)
+    // console.log(this.newMovie.id+"\n"+this.newMovie.fsk+"\n"+this.newMovie.length)
     this.movieService.editMovie(this.movie)
       .subscribe();
+    this.dialogRef.close();
   }
-  delete(id:number) {
-    console.log(this.movie.id+"\n"+this.movie.fsk+"\n"+this.movie.length)
-    this.movieService.delete(id)
-      .subscribe();
+  close()  {    
+    this.dialogRef.close();
   }
 }

@@ -8,11 +8,12 @@ import { User } from '../../Models/user';
 import { UserService } from '../../services/user.service';
 import { Table } from '../../Models/table';
 import { MovieAddComponent } from '../movie-add/movie-add.component';
+import { MovieControlComponent } from '../movie-control/movie-control.component';
 
-export interface DialogData {
-  animal: string;
-  name: string;
+export interface DialogData{
+  movieInfo:Movie
 }
+
 @Component({
   selector: 'app-movie-overview',
   templateUrl: './movie-overview.component.html',
@@ -20,11 +21,10 @@ export interface DialogData {
 })
 export class MovieOverviewComponent implements OnInit, AfterViewInit {
 
-  animal: string;
-  name: string;
+  movieInfo: Movie;
   movies: Movie[] = [];
   movieTable = new Array<Table>();
-  displayedColumns: string[] = ['index','entry'];
+  displayedColumns: string[] = ['index','entry','button','delete'];
 
   constructor(
     public dialog: MatDialog,
@@ -34,21 +34,37 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
     private router: Router,
   ) { }
 
-  openDialog(): void {
+  openAdd(): void {
     const dialogRef = this.dialog.open(MovieAddComponent, {
       width: '500px',
     });
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload();
+    });
+    
+  }
+  openControl(movie:Movie): void {
+    const dialogRef = this.dialog.open(MovieControlComponent, {
+      width: '500px',
+      data: movie
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload();
+    });
+  }
+  delete(id:number) {
+    this.movieService.delete(id)
+      .subscribe();
+    location.reload() 
   }
 
   ngOnInit() {
     this.createMoviesTable();
     console.log(this.movieTable);
-    this.refresh();
   }
 
   ngAfterViewInit() {
     //this.createMoviesTable();
-    this.refresh();
   }
  
 
@@ -59,12 +75,12 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
   /*      this.movies.forEach((m,i) =>  {
    *       this.movieTable.push({index: m.id, entry:m.movieName});
    *     });
-   *     this.refresh();
+   *     location.reload();
    */   })   
   }
 
   refresh() {
-    this.changeDetectorRef.detectChanges();
+    location.reload();
   }
 
   goToAdd() {
