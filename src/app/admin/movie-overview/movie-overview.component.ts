@@ -38,9 +38,6 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(MovieAddComponent, {
       width: '500px',
     });
-    dialogRef.afterClosed().subscribe(() => {
-      location.reload();
-    });
     
   }
   openControl(movie:Movie): void {
