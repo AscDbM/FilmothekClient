@@ -19,7 +19,6 @@ export class AdminOverviewComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private dialog: MatDialog,
   ) { }
 
@@ -41,7 +40,7 @@ export class AdminOverviewComponent implements OnInit {
   }
   
   delete(id:number) {
-    this.userService.delete(id)
+    this.userService.deleteAdmin(id)
       .subscribe();
   }
 
