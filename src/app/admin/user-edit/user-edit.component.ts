@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { User } from '../../Models/user';
 import { UserService } from '../../services/user.service';
@@ -12,28 +13,22 @@ import { ActivatedRoute } from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   urlId:number
-  @Input() user = new User();
+  @Input() user = this.data;
 
   constructor(
+    public dialogRef: MatDialogRef<UserEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:User, 
     private userService:UserService,
     private route:ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.urlId = +this.route.snapshot.url.toString().slice(9);
-    this.getUser(this.urlId);
-  }
-
-  getUser(id:number) {
-    this.userService.getUserById(id)
-      .subscribe(x => this.user = x);
   }
 
   send() {
     this.userService.editUserById(this.user)
       .subscribe();
+    this.dialogRef.close();
   }
-
-
 
 }

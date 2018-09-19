@@ -46,7 +46,6 @@ import { UserHistoryAdminComponent } from './admin/user-history/user-history-adm
 import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { UserOverviewComponentDialog } from './admin/user-overview/user-overview.component'
 
 
 @NgModule({
@@ -75,7 +74,6 @@ import { UserOverviewComponentDialog } from './admin/user-overview/user-overview
     UserHistoryAdminComponent,
     MovieOverviewComponent,
     NavigationComponent,
-    UserOverviewComponentDialog,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +97,7 @@ import { UserOverviewComponentDialog } from './admin/user-overview/user-overview
     MatDialogModule,
   ],
   entryComponents: [
-    UserOverviewComponentDialog,
+    UserEditComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
