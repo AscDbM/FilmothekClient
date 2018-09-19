@@ -12,7 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserEditComponent implements OnInit {
 
-  urlId:number
   @Input() user = this.data;
 
   constructor(

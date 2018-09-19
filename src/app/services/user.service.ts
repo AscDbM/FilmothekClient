@@ -72,6 +72,13 @@ export class UserService {
     return this.http.get<History[]>(AppSettings.apiUrl+"adminhistory/"+id);
   }
   
+  editAdmin(user:User):Observable<User> {
+    return this.http.put<User>(AppSettings.apiUrl+"editAdmin",user,AppSettings.httpOptions)
+  }
+
+  createAdmin(user:User):Observable<User> {
+    return this.http.post<User>(AppSettings.apiUrl+"createAdmin",user,AppSettings.httpOptions);
+  }
 
   // /** POST: add a new hero to the server */
   // addHero (hero: Hero): Observable<Hero> {

@@ -45,7 +45,10 @@ import { AdminHistoryComponent } from './admin/admin-history/admin-history.compo
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 import { MovieOverviewComponent } from './admin/movie-overview/movie-overview.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 
 
 @NgModule({
@@ -74,6 +77,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     UserHistoryAdminComponent,
     MovieOverviewComponent,
     NavigationComponent,
+    AdminEditComponent,
+    AdminCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,14 +100,21 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatSidenavModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   entryComponents: [
+<<<<<<< HEAD
 <<<<<<< HEAD
     UserOverviewComponentDialog,
     MovieAddComponent,
 =======
     UserEditComponent
 >>>>>>> 10d04a97005fe06788f7578d38f344cff20cf4bd
+=======
+    UserEditComponent,
+    AdminEditComponent,
+    AdminCreateComponent,
+>>>>>>> 0bc4900874c7ed23270038a2f4a84e1ed8b529bf
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

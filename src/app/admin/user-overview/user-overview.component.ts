@@ -39,13 +39,7 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
   edit(user:User) {
     const dialogRef = this.dialog.open(UserEditComponent, {
       width: '250px',
-      data: {
-        login: user.login, 
-        firstName: user.firstName,
-        lastName: user.lastName,
-        address: user.address,
-        id: user.id
-      }
+      data: user,
     });
 
 
