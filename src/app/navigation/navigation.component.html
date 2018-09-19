@@ -1,15 +1,9 @@
-<div class="nav">
-<mat-nav-list class="navRow">
-    <a mat-list-item *ngIf="!isLoggedIn()" routerLink='/login'>
-      Login
-    </a>
-    <a mat-list-item *ngIf="isLoggedIn()" routerLink='/logout'>
+<ng-container *ngIf="isLoggedIn(); else loggedOut">
+  <mat-nav-list class="navRow" >
+    <a mat-list-item (click)="logout()">
       Logout
     </a>   
-    <a mat-list-item routerLink='/register'>
-      Register
-    </a>  
-    <a mat-list-item *ngIf="isLoggedIn()" routerLink='/myPage'>
+    <a mat-list-item routerLink='/myPage'>
       MyPage
     </a>
     <a mat-list-item routerLink='/movies'>
@@ -18,5 +12,18 @@
     <a mat-list-item *ngIf="hasElevatedPermission()" routerLink='/admin'>
       Admin Stuff
     </a>
-</mat-nav-list>
-</div>
+  </mat-nav-list>
+</ng-container >
+<ng-template #loggedOut>
+  <mat-nav-list class="navRow">
+    <a mat-list-item routerLink='/login'>
+      Login
+    </a>
+    <a mat-list-item routerLink='/movies'>
+      Movies
+    </a>
+    <a mat-list-item routerLink='/register'>
+      Register
+    </a>  
+  </mat-nav-list>
+</ng-template>
