@@ -32,16 +32,10 @@ export class AdminOverviewComponent implements OnInit {
         console.log(this.users);}
       )}
 
-  edit(user) {
+  edit(user:User) {
     let dialogRef = this.dialog.open(AdminEditComponent, {
       width: '250px',
-      data: {
-        login: user.login,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        address: user.address,
-        id: user.id, 
-      }
+      data: user
     })
   }
   
