@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
+import { AdminEditComponent } from '../admin-edit/admin-edit.component';
 
 @Component({
   selector: 'app-admin-overview',
@@ -17,6 +19,7 @@ export class AdminOverviewComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -29,8 +32,17 @@ export class AdminOverviewComponent implements OnInit {
         console.log(this.users);}
       )}
 
-  edit(id:number) {
-    this.router.navigateByUrl(`editModerator/${id}`)
+  edit(user) {
+    let dialogRef = this.dialog.open(AdminEditComponent, {
+      width: '250px',
+      data: {
+        login: user.login,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        address: user.address,
+        id: user.id, 
+      }
+    })
   }
   
   delete(id:number) {
