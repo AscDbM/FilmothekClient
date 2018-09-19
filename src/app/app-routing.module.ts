@@ -23,6 +23,7 @@ import { AdminHistoryComponent } from './admin/admin-history/admin-history.compo
 import { UserHistoryAdminComponent } from './admin/user-history/user-history-admin.component';
 import { UserEditComponent } from './admin/user-edit/user-edit.component';
 import { UserHistoryComponent } from './userpage/user-history/user-history.component';
+import {UserWishlistComponent} from './userpage/user-wishlist/user-wishlist.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
     { path: 'deleteMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'adminhistory/:id', component: AdminHistoryComponent, canActivate: [ElevatedGuard]},
     { path: 'admin', component: AdminComponent, canActivate: [ElevatedGuard]},
+    { path: 'wishlist', component: UserWishlistComponent, canActivate: [ElevatedGuard]},
     { path: 'editMovie/:id', component: MovieControlComponent, canActivate: [ElevatedGuard]},
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
     { path: 'history/:id', component: UserHistoryAdminComponent, canActivate: [ElevatedGuard]},

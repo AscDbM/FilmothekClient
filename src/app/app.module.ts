@@ -49,6 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
+import { UserWishlistComponent } from './userpage/user-wishlist/user-wishlist.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { AdminCreateComponent } from './admin/admin-create/admin-create.componen
     NavigationComponent,
     AdminEditComponent,
     AdminCreateComponent,
+    UserWishlistComponent,
   ],
   imports: [
     BrowserModule,

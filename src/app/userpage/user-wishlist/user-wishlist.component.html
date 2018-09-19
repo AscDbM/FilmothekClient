@@ -1,0 +1,19 @@
+<h2>Your History</h2>
+<table mat-table [dataSource]="history" class="HistoryTable">
+  <ng-container matColumnDef="ID">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let cell">{{cell.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>
+    <td mat-cell *matCellDef="let cell" >
+      <a href="http://localhost:4200/movie/{{cell.id}}">{{cell.movieName}}</a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="note">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+    <td mat-cell *matCellDef="let cell">{{cell.note}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
