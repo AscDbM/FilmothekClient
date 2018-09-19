@@ -100,6 +100,7 @@ import { UserOverviewComponentDialog } from './admin/user-overview/user-overview
   ],
   entryComponents: [
     UserOverviewComponentDialog,
+    MovieAddComponent,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

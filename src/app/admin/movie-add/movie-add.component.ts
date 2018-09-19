@@ -1,8 +1,9 @@
-import { Component, OnInit, Injectable, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Injectable, ViewChild, AfterViewInit, Inject } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
 
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Movie } from '../../Models/movie';
 import { MovieService } from '../../services/movie.service';
 import { Table } from '../../Models/table';
@@ -12,6 +13,7 @@ import { Router, ActivatedRoute, Route } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { invalid } from '@angular/compiler/src/render3/view/util';
+import { MovieOverviewComponent, DialogData } from '../movie-overview/movie-overview.component';
 
 
 @Component({
@@ -22,10 +24,14 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
 
 export class MovieAddComponent implements OnInit {
 
+  animal: string;
+  name: string;
   addMovieForm: FormGroup;
   submitted = false;
 
   constructor(        
+    public dialogRef: MatDialogRef<MovieAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -47,6 +53,7 @@ export class MovieAddComponent implements OnInit {
       content: ['', [Validators.required]],
       })
   }
+  
 
 get f() {return this.addMovieForm.controls}
 
