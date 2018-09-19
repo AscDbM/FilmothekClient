@@ -103,18 +103,11 @@ import { AdminCreateComponent } from './admin/admin-create/admin-create.componen
     MatSnackBarModule,
   ],
   entryComponents: [
-<<<<<<< HEAD
-<<<<<<< HEAD
-    UserOverviewComponentDialog,
     MovieAddComponent,
-=======
-    UserEditComponent
->>>>>>> 10d04a97005fe06788f7578d38f344cff20cf4bd
-=======
+    UserEditComponent,
     UserEditComponent,
     AdminEditComponent,
     AdminCreateComponent,
->>>>>>> 0bc4900874c7ed23270038a2f4a84e1ed8b529bf
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
