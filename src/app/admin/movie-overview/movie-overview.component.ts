@@ -45,9 +45,6 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
       width: '500px',
       data: movie
     });
-    dialogRef.afterClosed().subscribe(() => {
-      location.reload();
-    });
   }
   delete(id:number) {
     this.movieService.delete(id)
