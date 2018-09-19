@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
 import { AdminEditComponent } from '../admin-edit/admin-edit.component';
+import { AdminCreateComponent } from '../admin-create/admin-create.component';
 
 @Component({
   selector: 'app-admin-overview',
@@ -42,5 +43,11 @@ export class AdminOverviewComponent implements OnInit {
   delete(id:number) {
     this.userService.delete(id)
       .subscribe();
+  }
+
+  create() {
+    let dialogReg = this.dialog.open(AdminCreateComponent, {
+      width: '300px'
+    })
   }
 }

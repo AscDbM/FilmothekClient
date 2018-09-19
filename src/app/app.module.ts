@@ -48,6 +48,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
     MovieOverviewComponent,
     NavigationComponent,
     AdminEditComponent,
+    AdminCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +105,7 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
   entryComponents: [
     UserEditComponent,
     AdminEditComponent,
+    AdminCreateComponent,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
