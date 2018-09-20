@@ -43,6 +43,6 @@ export class MovieService {
   }
 
   searchMovie( keywords:string, category:string, page:number, items:number, sort:string, order:string): Observable<any> {
-    return this.http.get<any>(AppSettings.apiUrl+`searchMovie/${keywords}/${category}/${page}/${items}/${sort}/${order}`, AppSettings.httpOptions);
+    return this.http.get<any>(AppSettings.apiUrl+`movies/${keywords}/${category}/${page}/${items}/${sort}/${order}`, AppSettings.httpOptions);
   }
 }

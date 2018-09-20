@@ -7,10 +7,10 @@
 </mat-form-field>
 <mat-form-field>
   <mat-select placeholder="Sort by" [(ngModel)]="sort">
-    <mat-option *ngFor="let sortlabel of sortList" [value] = "sortlabel.mat-option">
+    <mat-option *ngFor="let sortlabel of sortList" [value] = "sortlabel.option">
       {{sortlabel.viewOption}}
     </mat-option>
-  </mat-select>
+</mat-select>
 </mat-form-field>
 <mat-form-field>
   <mat-select placeholder="Sort by" [(ngModel)]="order">
@@ -31,6 +31,7 @@
               [pageSizeOptions]="pageSizeOptions">
 </mat-paginator>
 
+<button mat-raised-button color="primary" (click)=createMoviesTable()>Search</button>
 <div *ngIf="search">
 <table mat-table [dataSource]="movies" class="MovieTable">
   <ng-container matColumnDef="entry">
