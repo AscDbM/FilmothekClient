@@ -50,6 +50,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 import { UserWishlistComponent } from './userpage/user-wishlist/user-wishlist.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { MatPaginatorModule } from '@angular/material';
+import {MatOptionModule} from '@angular/material';
 
 
 @NgModule({
@@ -81,8 +84,11 @@ import { UserWishlistComponent } from './userpage/user-wishlist/user-wishlist.co
     AdminEditComponent,
     AdminCreateComponent,
     UserWishlistComponent,
+    SearchResultComponent,
   ],
   imports: [
+    MatOptionModule,
+    MatPaginatorModule, 
     BrowserModule,
     AppRoutingModule,
     FormsModule,

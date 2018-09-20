@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 import { History } from '../../Models/history';
+
 @Component({
   selector: 'app-user-wishlist',
   templateUrl: './user-wishlist.component.html',
@@ -10,7 +11,7 @@ import { History } from '../../Models/history';
 export class UserWishlistComponent implements OnInit {
 
   wishlist: History[]=[];
-  displayedColumns = ['ID','name','note'];
+  displayedColumns = ['name','note'];
   constructor(
     private userService: UserService
   ) { }

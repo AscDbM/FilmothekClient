@@ -38,14 +38,15 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(MovieAddComponent, {
       width: '500px',
     });
-    
   }
+
   openControl(movie:Movie): void {
     const dialogRef = this.dialog.open(MovieControlComponent, {
       width: '500px',
       data: movie
     });
   }
+
   delete(id:number) {
     this.movieService.delete(id)
       .subscribe();

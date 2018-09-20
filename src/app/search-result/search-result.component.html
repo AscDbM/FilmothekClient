@@ -1,0 +1,55 @@
+<mat-form-field>
+  <mat-select placeholder="Category" [(ngModel)]="category">
+    <mat-option *ngFor="let catlabel of categoryList" [value] = "catlabel.option">
+      {{catlabel.viewOption}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Sort by" [(ngModel)]="sort">
+    <mat-option *ngFor="let sortlabel of sortList" [value] = "sortlabel.mat-option">
+      {{sortlabel.viewOption}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Sort by" [(ngModel)]="order">
+    <mat-option value="ASC">Ascending</mat-option>
+    <mat-option value="DESC">Descending</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  Items per page:
+  <input placeholder=10 matInput [(ngModel)]="items">
+</mat-form-field>
+<mat-form-field>
+  Go to page:
+  <input placeholder=1 matInput [(ngModel)]="page">
+</mat-form-field>
+<mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions">
+</mat-paginator>
+
+<div *ngIf="search">
+<table mat-table [dataSource]="movies" class="MovieTable">
+  <ng-container matColumnDef="entry">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>
+    <td width = 500px mat-cell *matCellDef="let cell" >{{cell.movieName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td width = 100px mat-cell *matCellDef="let cell" >
+        <button mat-raised-button color = "primary">Edit</button>
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td width = 100px mat-cell *matCellDef="let cell" >
+          <button mat-raised-button color="primary">Delete</button>
+      </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

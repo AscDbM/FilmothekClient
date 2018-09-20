@@ -66,5 +66,7 @@ get f() {return this.addMovieForm.controls}
             this.router.navigate(['/addMovie']);
         }
     )
+    this.movieService.getAllMovies()
+        .subscribe();
   }
 }

@@ -24,6 +24,7 @@ import { UserHistoryAdminComponent } from './admin/user-history/user-history-adm
 import { UserEditComponent } from './admin/user-edit/user-edit.component';
 import { UserHistoryComponent } from './userpage/user-history/user-history.component';
 import {UserWishlistComponent} from './userpage/user-wishlist/user-wishlist.component';
+import {SearchResultComponent} from './search-result/search-result.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
     { path: 'history/:id', component: UserHistoryAdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editUser/:id', component: UserEditComponent, canActivate: [ElevatedGuard]},
+    { path: 'search', component: SearchResultComponent, canActivate: [ElevatedGuard]},
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 

@@ -14,7 +14,7 @@ import { MovieService} from '../../services/movie.service';
 export class UserHistoryComponent implements OnInit {
 
   history: History[]=[];
-  displayedColumns = ['ID','name','startDate','endDate'];
+  displayedColumns = ['name','startDate','endDate'];
 
   constructor(
     private userService: UserService,
