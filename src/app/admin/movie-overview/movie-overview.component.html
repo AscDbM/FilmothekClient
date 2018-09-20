@@ -1,4 +1,7 @@
-<pre><button mat-raised-button color="primary"  (click)="openAdd()">Add Movie</button>   <button mat-raised-button color="primary"  (click)="refresh()">Refresh</button></pre>
+<!-- <button mat-raised-button color="primary" (click)="goToAdd()">Add Movie</button> -->
+
+    <button mat-raised-button (click)="openAdd()">Add Movie</button>
+    <button mat-raised-button (click)="refresh()">Refresh</button>
 <table mat-table [dataSource]="movies" class="MovieTable">
   <ng-container matColumnDef="index">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>

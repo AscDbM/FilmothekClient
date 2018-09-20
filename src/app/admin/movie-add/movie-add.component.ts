@@ -62,9 +62,10 @@ get f() {return this.addMovieForm.controls}
     this.movieService.addMovie(this.addMovieForm.value)
     .pipe(first())
     .subscribe(
-        data => {
+        /*data => {
             this.router.navigate(['/addMovie']);
-        }
+        }*/
+    
     )
   }
 }

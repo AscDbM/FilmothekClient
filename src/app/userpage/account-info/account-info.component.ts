@@ -24,4 +24,7 @@ export class AccountInfoComponent implements OnInit {
     this.userService.getCurrentUser()
       .subscribe(x => this.user = x);
   }
+
+  editPw(): void {
+  }
 }

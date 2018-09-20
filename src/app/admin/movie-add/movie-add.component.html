@@ -78,6 +78,6 @@
     </mat-form-field>
   </div>
   <div>
-    <button mat-raised-button color="primary" [disabled]="!addMovieForm.valid" (click)="onSubmit()" >Add Movie</button>
+    <button mat-raised-button color="primary" [disabled]="addMovieForm.invalid" (click)="onSubmit()" >Add Movie</button>
   </div> 
 </form>
