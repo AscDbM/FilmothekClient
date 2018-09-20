@@ -4,7 +4,7 @@
       <app-account-info></app-account-info>
     </ng-template>
   </mat-tab>
-  <mat-tab label="Payment Information">
+  <mat-tab label="Payment Information" *ngIf="!isAdmin()">
     <ng-template matTabContent>
       <app-payment-info></app-payment-info>
     </ng-template>

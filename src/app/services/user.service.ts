@@ -64,8 +64,8 @@ export class UserService {
     return this.http.post<User>(AppSettings.apiUrl+"editUserAdmin", user, AppSettings.httpOptions);
   }
   
-  editPw(pw: string): Observable<any> {
-    return this.http.post<any>(AppSettings.apiUrl+"editPW",pw, AppSettings.httpOptions);
+  editPw(Pw:{newPw:string, oldPw:string}): Observable<any> {
+    return this.http.post<any>(AppSettings.apiUrl+"editPW", Pw,AppSettings.httpOptions);
   }
 
   getHistoryById(id:number): Observable<History[]> {

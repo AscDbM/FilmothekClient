@@ -45,16 +45,17 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
       width: '500px',
       data: movie
     });
+    dialogRef.afterClosed().subscribe(()=> this.getAllMovies());
   }
 
   delete(id:number) {
     this.movieService.delete(id)
-      .subscribe();
-    location.reload() 
+      .subscribe(()=> this.getAllMovies());
+    ; 
   }
 
   ngOnInit() {
-    this.createMoviesTable();
+    this.getAllMovies();
     console.log(this.movieTable);
   }
 
@@ -63,15 +64,9 @@ export class MovieOverviewComponent implements OnInit, AfterViewInit {
   }
  
 
-  createMoviesTable() {
+  getAllMovies() {
     this.movieService.getAllMovies()
-      .subscribe(x => {
-        this.movies = x;
-  /*      this.movies.forEach((m,i) =>  {
-   *       this.movieTable.push({index: m.id, entry:m.movieName});
-   *     });
-   *     location.reload();
-   */   })   
+      .subscribe(x =>this.movies = x)   
   }
 
   refresh() {

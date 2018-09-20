@@ -13,19 +13,13 @@ import { Payment } from '../Models/payment';
 })
 export class UserpageComponent implements OnInit {
 
- //user: User;
- //payment: Payment;
+  constructor() { }
 
-  constructor(
-    //private userService: UserService,
-  ) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-    //this.getUser();
+  isAdmin():boolean {
+    let login = JSON.parse(localStorage.getItem('currentUser'));
+    if(login.permission > 1) return true;
+    return false;
   }
-
-  /*getUser(): void {
-    this.userService.getCurrentUser()
-      .subscribe(x => this.user = x);
-  }*/
 }
