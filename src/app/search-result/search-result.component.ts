@@ -80,7 +80,7 @@ setPageSizeOptions(setPageSizeOptionsInput: string) {
 }
   
 createMoviesTable() {
-  this.movieService.searchMovie(this.keyword, this.category, this.page, this.items, this.sort, this.order)
+  this.movieService.searchMovie(this.keyword.trim(), this.category.trim(), this.page, this.items, this.sort.trim(), this.order)
     .subscribe(x => {
       this.movies = x;
       this.length = x.length;
