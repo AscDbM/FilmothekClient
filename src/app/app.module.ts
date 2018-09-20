@@ -53,6 +53,7 @@ import { UserWishlistComponent } from './userpage/user-wishlist/user-wishlist.co
 import { SearchResultComponent } from './search-result/search-result.component';
 import { MatPaginatorModule } from '@angular/material';
 import {MatOptionModule} from '@angular/material';
+import { PwEditComponent } from './userpage/pw-edit/pw-edit.component';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import {MatOptionModule} from '@angular/material';
     AdminCreateComponent,
     UserWishlistComponent,
     SearchResultComponent,
+    PwEditComponent,
   ],
   imports: [
     MatOptionModule,
