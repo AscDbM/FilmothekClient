@@ -54,6 +54,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { MatPaginatorModule } from '@angular/material';
 import {MatOptionModule} from '@angular/material';
 import { PwEditComponent } from './userpage/pw-edit/pw-edit.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { PwEditComponent } from './userpage/pw-edit/pw-edit.component';
     UserWishlistComponent,
     SearchResultComponent,
     PwEditComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     MatOptionModule,
@@ -118,6 +120,8 @@ import { PwEditComponent } from './userpage/pw-edit/pw-edit.component';
     UserEditComponent,
     AdminEditComponent,
     AdminCreateComponent,
+    PwEditComponent,
+    ConfirmDialogComponent,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

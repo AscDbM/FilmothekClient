@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ValidateEqualTo } from '../../validators/equalTo.validator';
+import { ValidatorEqualTo } from '../../validators/equalTo.validator';
 
 @Component({
   selector: 'app-pw-edit',
@@ -22,12 +22,15 @@ export class PwEditComponent implements OnInit {
 
   ngOnInit() {
     this.pwForm = this.formBuilder.group({
-      old: ['', Validators.required],
-      new: ['', Validators.minLength(6)],
-      //new2:['', ValidateEqualTo(new2, new)]
-    })
+      oldPw: ["", Validators.required],
+      newPw: ["", Validators.minLength(6)],
+      newPw2:["", Validators.required],
+    },{validator: ValidatorEqualTo("newPw","newPw2")})
   }
 
-
-
+  send():void {
+    this.userService.editPw(this.pwForm.get('newPw').value, this.pwForm.get('oldPw').value)
+      .subscribe();
+    this.dialogRef.close();
+  }
 }

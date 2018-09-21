@@ -64,8 +64,9 @@ export class UserService {
     return this.http.post<User>(AppSettings.apiUrl+"editUserAdmin", user, AppSettings.httpOptions);
   }
   
-  editPw(Pw:{newPw:string, oldPw:string}): Observable<any> {
-    return this.http.post<any>(AppSettings.apiUrl+"editPW", Pw,AppSettings.httpOptions);
+  editPw(newPw:string, oldPw:string): Observable<any> {
+    //abuse of APIs password class to transfer the values. Dont judge me
+    return this.http.post<any>(AppSettings.apiUrl+"editPW", {password:newPw, username: oldPw},AppSettings.httpOptions);
   }
 
   getHistoryById(id:number): Observable<History[]> {
@@ -86,5 +87,9 @@ export class UserService {
 
   deleteAdmin(id:number):Observable<any> {
     return this.http.delete<any>(AppSettings.apiUrl+"deleteAdmin/"+id);
+  }
+
+  resetPassword(id:number): Observable<String> {
+    return this.http.post<String>(AppSettings.apiUrl+"resetPw",id,AppSettings.httpOptions);
   }
 }

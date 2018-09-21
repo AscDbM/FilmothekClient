@@ -45,13 +45,4 @@ export class AdminEditComponent implements OnInit {
       .subscribe();
     this.dialogRef.close();
   }
-
-  patch() {
-    //console.log(this.user);
-    //this.adminForm.patchValue(this.user)
-    //console.log(this.user);
-    ;
-    //console.log(this.user);
-  }
-
 }

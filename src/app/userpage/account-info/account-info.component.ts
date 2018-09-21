@@ -32,9 +32,8 @@ export class AccountInfoComponent implements OnInit {
 
   editPw(neww:string, old:string): void {
     let dialogRef = this.dialog.open(PwEditComponent, {
-      width: '250px'
+      width: '250px',
+      //position: {left:'500px'},
     })
-    this.userService.editPw({newPw: neww, oldPw: old})
-      .subscribe();
   }
 }

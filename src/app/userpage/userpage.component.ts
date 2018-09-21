@@ -19,7 +19,8 @@ export class UserpageComponent implements OnInit {
 
   isAdmin():boolean {
     let login = JSON.parse(localStorage.getItem('currentUser'));
-    if(login.permission > 1) return true;
-    return false;
+    if(login == null) return false;
+    if(login.permission < 2) return false;
+    return true;
   }
 }

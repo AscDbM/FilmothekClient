@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
 import { UserEditComponent } from '../user-edit/user-edit.component';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-user-overview',
@@ -14,7 +15,8 @@ import { UserEditComponent } from '../user-edit/user-edit.component';
 export class UserOverviewComponent implements OnInit, AfterViewInit {
 
   users: User[]=[];
-  displayedColumns = ["id","last","first","address","user","history","edit","delete"];
+  displayedColumns = ["id","last","first","address","user","history","edit","delete","reset"];
+  text:string;
 
   constructor(
     private userService: UserService,
@@ -30,7 +32,7 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
     
   }
 
-  getAllUsers() {
+  getAllUsers(): void {
     this.userService.getAllUsers()
       .subscribe(x => {this.users = x;
       })
@@ -41,13 +43,29 @@ export class UserOverviewComponent implements OnInit, AfterViewInit {
       width: '250px',
       data: user,
     });
-
-
   }
 
-  delete(id:number) {
+  confirmReset(id:number): void {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: "Do you really want to reset this users Password?"
+    });
+
+    dialogRef.afterClosed().subscribe(x => {
+      if(x==true) this.reset(id);
+    })
+  }
+
+  reset(id:number): void {
+    this.userService.resetPassword(id)
+      .subscribe(x => console.log(x));
+    }
+  
+
+  delete(id:number):void {
     this.userService.delete(id)
       .subscribe();
   }
 
 }
+

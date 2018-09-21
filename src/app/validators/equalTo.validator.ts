@@ -1,9 +1,9 @@
-import {AbstractControl} from '@angular/forms';
+import {AbstractControl, FormGroup} from '@angular/forms';
 
 
-export function ValidateEqualTo(control: AbstractControl, compareTo:string) {
-
-  if (control.value == compareTo) return { validEqualTo: true };
-  return null;
-
+export const ValidatorEqualTo = (compare:string, compareTo:string) => {
+  return (form: FormGroup ) => {
+    if (form.get(compare).value == form.get(compareTo).value) return null; //valid
+    return { validEqualTo: true }; //invalid
+  }
 }
