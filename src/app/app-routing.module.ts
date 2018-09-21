@@ -46,7 +46,7 @@ const routes: Routes = [
     { path: 'addMovie', component: MovieAddComponent, canActivate:[ElevatedGuard]},
     { path: 'history/:id', component: UserHistoryAdminComponent, canActivate: [ElevatedGuard]},
     { path: 'editUser/:id', component: UserEditComponent, canActivate: [ElevatedGuard]},
-    { path: 'search', component: SearchResultComponent, canActivate: [ElevatedGuard]},
+    { path: 'search', component: SearchResultComponent},
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ]
 

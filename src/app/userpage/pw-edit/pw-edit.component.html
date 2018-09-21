@@ -1,0 +1,26 @@
+<div *ngIf="pwForm">
+  <form [formGroup]="pwForm"(ngSubmit)="send()">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Old Password:</mat-label>
+        <input matInput type="password" formControlName="oldPw"/>
+      </mat-form-field> 
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label for="password">New Password:</mat-label>
+        <input matInput type="password" formControlName="newPw"/>
+        
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Repeat Password</mat-label>
+        <input matInput type="password" formControlName="newPw2"/>
+        <mat-hint class="warning" *ngIf="pwForm.errors?.validEqualTo">Passwords must match</mat-hint>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="pwForm.invalid">Change Password</button>
+  </form>
+</div>
+
