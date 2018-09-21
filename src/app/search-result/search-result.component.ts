@@ -6,6 +6,7 @@ import { Table } from '../Models/table';
 import { Movie } from '../Models/movie';
 import { Search } from '../Models/search';
 import { MovieResults } from '../Models/MovieResults';
+import { PageEvent } from '@angular/material';
 
 export interface SortList {
   option: string;
@@ -28,6 +29,12 @@ export class SearchResultComponent implements OnInit {
   items = 1;
   pageSizeOptions: number[] = [1,3,10,25];
   moviesResults = new MovieResults;
+  search: Search;
+  movieInfo: Movie;
+  movies: Movie[] = [];
+  movieTable = new Array<Table>();
+  displayedColumns: string[] = ['name','genre','length','isSeries','rating','languageDub','languageSub','release','FSK','content','price'];
+  pageEvent: PageEvent;
   
   categoryList: SortList[] = [
     {option: "movieName", viewOption: "Movie name"},
@@ -55,11 +62,8 @@ export class SearchResultComponent implements OnInit {
     {option: "fsk", viewOption: "FSK"}
   ];
 
-  search: Search;
-  movieInfo: Movie;
-  movies: Movie[] = [];
-  movieTable = new Array<Table>();
-  displayedColumns: string[] = ['name','genre','length','isSeries','rating','languageDub','languageSub','release','FSK','content','price'];
+
+
   constructor(
     private movieService: MovieService,
     private userService: UserService,
@@ -70,19 +74,21 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {
   }
+
   
 
-setPageSizeOptions(setPageSizeOptionsInput: string) {
-  this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-}
-  
-createMoviesTable() {
-  this.movieService.searchMovie(this.keyword, this.category, this.page, this.items, this.sort, this.order)
-    .subscribe(x => {
-      this.moviesResults = x;
-    });
-    // this.movieService.getAllMovies()
-    //   .subscribe();
+  setPageSize(setPageSizeInput: PageEvent) {
+    this.items = setPageSizeInput.pageSize;
+    console.log(this.items);
   }
+    
+  createMoviesTable() {
+    this.movieService.searchMovie(this.keyword, this.category, this.page, this.items, this.sort, this.order)
+      .subscribe(x => {
+        this.moviesResults = x;
+      });
+      // this.movieService.getAllMovies()
+      //   .subscribe();
+    }
 }
 
