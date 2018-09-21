@@ -74,11 +74,8 @@ export class SearchResultComponent implements OnInit {
   ngOnInit() {
   }
 
-  
-
   setPageSize(setPageSizeInput: PageEvent) {
     this.items = setPageSizeInput.pageSize;
-    console.log(this.items);
   }
     
   createMoviesTable() {

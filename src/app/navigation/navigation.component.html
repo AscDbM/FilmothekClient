@@ -13,7 +13,9 @@
       Admin Stuff
     </a>
   </mat-nav-list>
-<input placeholder="search" size="100px" matInput [(ngModel)]="keyword" (keydown.enter)="navigationToSearch()">
+<mat-form-field appearance="standard">
+  <input placeholder="search" matInput [(ngModel)]="keyword" (keydown.enter)="navigationToSearch()">
+</mat-form-field>
 </ng-container>
 <ng-template #loggedOut>
   <mat-nav-list class="navRow">

@@ -1,5 +1,7 @@
-<input placeholder="Search" matInput [(ngModel)]="keyword" (keydown.enter)="createMoviesTable()"/>
-<mat-form-field>
+<mat-form-field appearance="standard">
+<input matInput [(ngModel)]="keyword" width = 100px placeholder="Search" (keydown.enter)="createMoviesTable()">
+</mat-form-field>
+<p><mat-form-field>
   <mat-select placeholder="Category" [(ngModel)]="category">
     <mat-option *ngFor="let catlabel of categoryList" [value]="catlabel.option">
       {{catlabel.viewOption}}
@@ -12,8 +14,8 @@
       {{sortlabel.viewOption}}
     </mat-option>
   </mat-select>
-</mat-form-field>
-<mat-form-field>
+</mat-form-field></p>
+<p><mat-form-field>
   <mat-select placeholder="Sort by" [(ngModel)]="order">
     <mat-option value="ASC">Ascending</mat-option>
     <mat-option value="DESC">Descending</mat-option>
@@ -23,17 +25,14 @@
   Items per page:
   <input placeholder=1 matInput [(ngModel)]="items">
 </mat-form-field> -->
-<mat-form-field>
-  Go to page:
-  <input matInput [(ngModel)]="page"/>
-</mat-form-field>
-<mat-paginator [length]="moviesResults.totalHits"
-              [pageSize]="items"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="pageEvent=setPageSize($event)"
-              
-               >
-</mat-paginator>
+<p><mat-form-field class="example-full-width">
+    <input type="number" placeholder="Page" aria-label="Number" matInput [(ngModel)]="page" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field></p>
 <button mat-raised-button color="primary" (click)=createMoviesTable()>Search</button>
 <table mat-table [dataSource]="moviesResults.movies" class="MovieTable">
   <ng-container matColumnDef="name">
@@ -83,3 +82,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [length]="moviesResults.totalHits"
+              [pageSize]="items"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent=setPageSize($event)"
+              
+               >
+</mat-paginator>

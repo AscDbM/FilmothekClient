@@ -1,3 +1,6 @@
+input{
+  width: 100px;
+}
 .mat-nav-list {
   display: inline-flex;
 }
