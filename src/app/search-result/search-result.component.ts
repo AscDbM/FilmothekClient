@@ -5,14 +5,12 @@ import { UserService } from '../services/user.service';
 import { Table } from '../Models/table';
 import { Movie } from '../Models/movie';
 import { Search } from '../Models/search';
+import { MovieResults } from '../Models/MovieResults';
 
 export interface SortList {
   option: string;
   viewOption: string;
 }
-
-
-
 
 @Component({
   selector: 'app-search-result',
@@ -21,15 +19,16 @@ export interface SortList {
 })
 export class SearchResultComponent implements OnInit {
 
-  category = "Movie Name";
+  keyword: string;
+  category = "movieName";
   order = "ASC"
-  sort = "Ascending A-Z"
+  sort = "movieName"
   length = 50;
   page = 1;
-  items = 3;
-  keyword = "movie";
-  pageSizeOptions: number[] = [3,5,10,25];
-
+  items = 1;
+  pageSizeOptions: number[] = [1,3,10,25];
+  moviesResults = new MovieResults;
+  
   categoryList: SortList[] = [
     {option: "movieName", viewOption: "Movie name"},
     {option: "genre", viewOption: "Genre"},
@@ -60,9 +59,8 @@ export class SearchResultComponent implements OnInit {
   movieInfo: Movie;
   movies: Movie[] = [];
   movieTable = new Array<Table>();
-  displayedColumns: string[] = ['index','entry','button','delete'];
+  displayedColumns: string[] = ['name','genre','length','isSeries','rating','languageDub','languageSub','release','FSK','content','price'];
   constructor(
-    // public dialog: MatDialog,
     private movieService: MovieService,
     private userService: UserService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -71,7 +69,6 @@ export class SearchResultComponent implements OnInit {
 
 
   ngOnInit() {
-    this.createMoviesTable();
   }
   
 
@@ -80,11 +77,12 @@ setPageSizeOptions(setPageSizeOptionsInput: string) {
 }
   
 createMoviesTable() {
-  this.movieService.searchMovie(this.keyword.trim(), this.category.trim(), this.page, this.items, this.sort.trim(), this.order)
+  this.movieService.searchMovie(this.keyword, this.category, this.page, this.items, this.sort, this.order)
     .subscribe(x => {
-      this.movies = x;
-      this.length = x.length;
+      this.moviesResults = x;
     });
+    // this.movieService.getAllMovies()
+    //   .subscribe();
   }
 }
 

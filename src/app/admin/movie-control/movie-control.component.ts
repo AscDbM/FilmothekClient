@@ -44,11 +44,8 @@ export class MovieControlComponent implements OnInit {
     this.movieService.editMovie(this.movie)
       .subscribe();
     this.dialogRef.close();
-<<<<<<< HEAD
     this.movieService.getAllMovies()
       .subscribe();
-=======
->>>>>>> b63db5ab0a619a182f678528ce8285ab1bdf89e8
   }
   close()  {    
     this.dialogRef.close();

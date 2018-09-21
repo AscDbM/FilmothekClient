@@ -1,3 +1,4 @@
+<input placeholder="Search" matInput [(ngModel)]="keyword" (keydown.enter)="createMoviesTable()">
 <mat-form-field>
   <mat-select placeholder="Category" [(ngModel)]="category">
     <mat-option *ngFor="let catlabel of categoryList" [value] = "catlabel.option">
@@ -18,39 +19,67 @@
     <mat-option value="DESC">Descending</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-form-field>
+<!-- <mat-form-field>
   Items per page:
-  <input placeholder=10 matInput [(ngModel)]="items">
-</mat-form-field>
+  <input placeholder=1 matInput [(ngModel)]="items">
+</mat-form-field> -->
 <mat-form-field>
   Go to page:
-  <input placeholder=1 matInput [(ngModel)]="page">
+  <input matInput [(ngModel)]="page">
 </mat-form-field>
-<mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions">
+<mat-paginator [length]="moviesResults.totalHits"
+              [pageIndex]="page-1"
+              [pageSize]="items"
+              [pageSizeOptions]="pageSizeOptions"
+              
+               >
 </mat-paginator>
-
 <button mat-raised-button color="primary" (click)=createMoviesTable()>Search</button>
-<div *ngIf="search">
-<table mat-table [dataSource]="movies" class="MovieTable">
-  <ng-container matColumnDef="entry">
+<table mat-table [dataSource]="moviesResults.movies" class="MovieTable">
+  <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>
-    <td width = 500px mat-cell *matCellDef="let cell" >{{cell.movieName}}</td>
+    <td  mat-cell *matCellDef="let cell" >{{cell.movieName}}</td>
   </ng-container>
-  <ng-container matColumnDef="button">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td width = 100px mat-cell *matCellDef="let cell" >
-        <button mat-raised-button color = "primary">Edit</button>
-      </td>
+  <ng-container matColumnDef="genre">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Genre</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.genre}}</td>
   </ng-container>
-  <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td width = 100px mat-cell *matCellDef="let cell" >
-          <button mat-raised-button color="primary">Delete</button>
-      </td>
+  <ng-container matColumnDef="length">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Length</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.length}} m</td>
   </ng-container>
+  <ng-container matColumnDef="isSeries">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Movie</th>----------------------------------
+    <td  mat-cell *matCellDef="let cell" >{{cell.isSeries}}</td>
+  </ng-container>
+  <ng-container matColumnDef="rating">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.rating}}</td>
+  </ng-container>
+  <ng-container matColumnDef="languageDub">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Audio Language</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.languageDub}}</td>
+  </ng-container>
+  <ng-container matColumnDef="languageSub">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Subtitels Language</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.languageSub}}</td>
+  </ng-container>
+  <ng-container matColumnDef="release">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Release Date</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.release | date:short}}</td>
+  </ng-container>
+  <ng-container matColumnDef="FSK">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>FSK</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.fsk}}</td>
+  </ng-container>
+  <ng-container matColumnDef="content">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+    <td white-space:pre mat-cell *matCellDef="let cell" >{{cell.content}}</td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+    <td  mat-cell *matCellDef="let cell" >{{cell.price}} $</td>
+  </ng-container>  
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-</div>

@@ -2,7 +2,7 @@
   <mat-nav-list class="navRow" >
     <a mat-list-item (click)="logout()">
       Logout
-    </a>   
+    </a>
     <a mat-list-item routerLink='/myPage'>
       MyPage
     </a>
@@ -13,6 +13,7 @@
       Admin Stuff
     </a>
   </mat-nav-list>
+<input placeholder="search" size="100px" matInput [(ngModel)]="keyword" (keydown.enter)="navigationToSearch()">
 </ng-container>
 <ng-template #loggedOut>
   <mat-nav-list class="navRow">
@@ -24,6 +25,6 @@
     </a>
     <a mat-list-item routerLink='/register'>
       Register
-    </a>  
+    </a>
   </mat-nav-list>
 </ng-template>

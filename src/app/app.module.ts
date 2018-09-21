@@ -117,7 +117,7 @@ import {MatOptionModule} from '@angular/material';
     AdminEditComponent,
     AdminCreateComponent,
   ],
-  providers: [
+  providers: [ NavigationComponent,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     //fakeBackendProvider,
   ],
