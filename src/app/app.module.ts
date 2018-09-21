@@ -55,6 +55,7 @@ import { MatPaginatorModule } from '@angular/material';
 import {MatOptionModule} from '@angular/material';
 import { PwEditComponent } from './userpage/pw-edit/pw-edit.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatAutocompleteModule} from '@angular/material';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ConfirmDialogComponent,
   ],
   imports: [
+    MatAutocompleteModule,
     MatOptionModule,
     MatPaginatorModule, 
     BrowserModule,
