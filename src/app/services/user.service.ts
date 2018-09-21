@@ -92,4 +92,8 @@ export class UserService {
   resetPassword(id:number): Observable<String> {
     return this.http.post<String>(AppSettings.apiUrl+"resetPw",id,AppSettings.httpOptions);
   }
+
+  resetAdminPassword(id:number): Observable<String> {
+    return this.http.post<String>(AppSettings.apiUrl+"resetAdminPw",id,AppSettings.httpOptions);
+  }
 }

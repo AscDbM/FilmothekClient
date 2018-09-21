@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../Models/user';
 import { AdminEditComponent } from '../admin-edit/admin-edit.component';
 import { AdminCreateComponent } from '../admin-create/admin-create.component';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-admin-overview',
@@ -14,7 +15,7 @@ import { AdminCreateComponent } from '../admin-create/admin-create.component';
 export class AdminOverviewComponent implements OnInit {
 
   users: User[]=[];
-  displayedColumns = ["id","last","first","address","user","history","edit","delete"];
+  displayedColumns = ["id","last","first","address","user","history","edit","delete","reset"];
 
   constructor(
     private userService: UserService,
@@ -38,7 +39,20 @@ export class AdminOverviewComponent implements OnInit {
     })
     
   }
+
+  confirmReset(id:number): void {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: "300px",
+      data: "Do you really want to Reset this users password?",
+    });
+    dialogRef.afterClosed().subscribe(x => {if(x) this.resetPassword(id)});
+  }
   
+  resetPassword(id:number): void {
+    this.userService.resetAdminPassword(id)
+      .subscribe(x => console.log(x))
+  }
+
   delete(id:number) {
     this.userService.deleteAdmin(id)
       .subscribe();    
