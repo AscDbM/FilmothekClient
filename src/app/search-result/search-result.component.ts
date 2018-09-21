@@ -6,6 +6,7 @@ import { Table } from '../Models/table';
 import { Movie } from '../Models/movie';
 import { Search } from '../Models/search';
 import { MovieResults } from '../Models/MovieResults';
+import {FormControl} from '@angular/forms';
 
 export interface SortList {
   option: string;
@@ -25,7 +26,7 @@ export class SearchResultComponent implements OnInit {
   sort = "movieName"
   length = 50;
   page = 1;
-  items = 1;
+  items = 2;
   pageSizeOptions: number[] = [1,3,10,25];
   moviesResults = new MovieResults;
   
@@ -54,7 +55,8 @@ export class SearchResultComponent implements OnInit {
     {option: "release", viewOption: "Release date"},
     {option: "fsk", viewOption: "FSK"}
   ];
-
+  
+  myControl = new FormControl();
   search: Search;
   movieInfo: Movie;
   movies: Movie[] = [];

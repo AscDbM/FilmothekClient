@@ -1,32 +1,36 @@
 <input placeholder="Search" matInput [(ngModel)]="keyword" (keydown.enter)="createMoviesTable()">
-<mat-form-field>
+<p><mat-form-field>
   <mat-select placeholder="Category" [(ngModel)]="category">
     <mat-option *ngFor="let catlabel of categoryList" [value] = "catlabel.option">
       {{catlabel.viewOption}}
     </mat-option>
   </mat-select>
-</mat-form-field>
-<mat-form-field>
+</mat-form-field></p>
+<p><mat-form-field>
   <mat-select placeholder="Sort by" [(ngModel)]="sort">
     <mat-option *ngFor="let sortlabel of sortList" [value] = "sortlabel.option">
       {{sortlabel.viewOption}}
     </mat-option>
 </mat-select>
-</mat-form-field>
-<mat-form-field>
+</mat-form-field></p>
+<p><mat-form-field>
   <mat-select placeholder="Sort by" [(ngModel)]="order">
     <mat-option value="ASC">Ascending</mat-option>
     <mat-option value="DESC">Descending</mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field></p>
 <!-- <mat-form-field>
   Items per page:
   <input placeholder=1 matInput [(ngModel)]="items">
 </mat-form-field> -->
-<mat-form-field>
-  Go to page:
-  <input matInput [(ngModel)]="page">
-</mat-form-field>
+<p><mat-form-field class="example-full-width">
+    <input type="number" placeholder="Page" aria-label="Number" matInput [(ngModel)]="page" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field></p>
 <mat-paginator [length]="moviesResults.totalHits"
               [pageIndex]="page-1"
               [pageSize]="items"

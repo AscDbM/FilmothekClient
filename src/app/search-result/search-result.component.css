@@ -1,3 +1,7 @@
+
+input{
+    outline: 5px;
+}
 table {
     width: 100%;
     border-style: solid;
